@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
-  validates :title, :text, presence: true
+  validates :title, :body, presence: true
   # mount_uploader :picture, PictureUploader
   # paginates_per 3
 

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   respond_to :html
 
   expose(:post, attributes: :post_params)
@@ -22,6 +23,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :published)
+    params.require(:post).permit(:title, :body, :published).merge(user: current_user)
   end
 end

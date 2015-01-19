@@ -1,0 +1,12 @@
+.scaffold-form
+  = simple_form_for(post) do |f|
+    .form-inputs
+      = f.input :title
+      = f.input :body
+      = f.input :published
+
+    .form-actions
+      = f.button :submit
+      '  or
+      = link_to 'Back', :back
+

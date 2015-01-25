@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   validates :title, :body, presence: true
-  # mount_uploader :picture, PictureUploader
+  has_attached_file :avatar
   # paginates_per 3
 
   def was_updated?

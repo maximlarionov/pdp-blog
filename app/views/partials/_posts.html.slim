@@ -1,4 +1,6 @@
 .small-6.large-5.columns
+  .user-avatar
+    = link_to image_tag(post.user.avatar.url(:thumb), :class => "avatar")
   .h1 = post.title.to_s.titleize
   span.user_name
     .glyphicon.glyphicon-user

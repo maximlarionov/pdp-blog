@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/galetahub/ckeditor.git
-  revision: 3f7e92e67336a6012a933f2643afb97f2088f474
-  specs:
-    ckeditor (4.1.1)
-      cocaine
-      orm_adapter (~> 0.5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,6 +101,8 @@ GEM
     dotenv (0.9.0)
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
+    dropbox-sdk (1.6.4)
+      json
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -170,6 +164,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-dropbox (1.3.0)
+      dropbox-sdk (~> 1.3)
+      paperclip (>= 3.1, < 5)
     parser (2.2.0.pre.3)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
@@ -336,7 +333,6 @@ DEPENDENCIES
   byebug
   capybara
   capybara-webkit
-  ckeditor!
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   database_cleaner
@@ -356,6 +352,7 @@ DEPENDENCIES
   launchy
   letter_opener
   paperclip
+  paperclip-dropbox (>= 1.1.7)
   pg
   pry-rails
   quiet_assets

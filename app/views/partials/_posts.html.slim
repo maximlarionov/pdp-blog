@@ -16,10 +16,8 @@
       =post.updated_at
   div.text
     = post.body
-  / br
-  / -if post.picture.present?
-  /   p.image
-  /   = image_tag post.picture_url, :width => '350px', class: 'img img-rounded'
+/    p.image
+ /   = image_tag post.picture_url, :width => '350px', class: 'img img-rounded'
   br
   br
   ul.button-group

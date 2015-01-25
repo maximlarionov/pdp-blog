@@ -8,5 +8,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+//= require ckeditor/init
 
 $(document).foundation();

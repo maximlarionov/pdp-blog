@@ -17,8 +17,8 @@ gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
-gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
+gem 'rmagick'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'active_link_to'

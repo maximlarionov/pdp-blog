@@ -16,6 +16,12 @@ title 'View post'
           = post.body
     .control-group
       label.control-label
+        | Picture
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = image_tag(post.picture.url(:medium), class: "picture")
+    .control-group
+      label.control-label
         | Published
       .controls
         .input-xlarge.uneditable-input.boolean.span7

@@ -1,6 +1,6 @@
 .small-6.large-5.columns
-  .user-avatar
-    = link_to image_tag(post.user.avatar.url(:thumb), :class => "avatar")
+  .avatar
+    = image_tag(post.user.avatar.url(:thumb), class: "avatar")
   .h1 = post.title.to_s.titleize
   span.user_name
     .glyphicon.glyphicon-user
@@ -18,8 +18,8 @@
       =post.updated_at
   div.text
     = post.body
-/    p.image
- /   = image_tag post.picture_url, :width => '350px', class: 'img img-rounded'
+  .picture
+    = image_tag(post.picture.url(:medium), class: "picture")
   br
   br
   ul.button-group

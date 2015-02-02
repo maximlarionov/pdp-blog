@@ -1,0 +1,8 @@
+.small-6.large-5.columns
+  .well.comments-index
+    h4 Comments
+    .input-group.comment-button
+      a.button.radius.success href="" role="button"  Create Comment
+    = render 'comments/form', post: post
+
+  = render 'partials/last_comments', post: post

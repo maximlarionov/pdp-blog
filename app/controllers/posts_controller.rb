@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   respond_to :html
 
   expose(:post, attributes: :post_params)
-  expose(:posts) { Post.page(params[:page]) }
+  expose(:posts) { Post.includes(:user, comments: :user).order('created_at desc').page params[:page] }
+  expose(:comments) { post.comments.order('created_at desc').page params[:page] }
 
   def create
     flash[:notice] = 'Post was successfully created.' if post.save
@@ -11,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'Post was successfully updated.' if post.save
+    flash[:notice] = 'Post was successfully updated.' if post.save && post.editable?
     respond_with(post)
   end
 
@@ -21,6 +22,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def self.editable?
+    post.user == current_user
+  end
 
   def post_params
     params.require(:post).permit(:title, :body, :picture, :published).merge(user: current_user)

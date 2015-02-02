@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   end
 
   def is_author?
-    post.user_id == current_user.id
+    self.user_id == current_user.id
   end
 
    def created

@@ -1,31 +1,15 @@
-- title 'Listing comments'
+.row
+  .large-6.columns
+    .well.comments-index
+        h4 Comments
+        .input-group.comment-button
+          a.button.radius.success href="" role="button"  Create Comment
+        = render 'comments/form', post: post
+    - comments.includes(:user).order(:created_at).each do |comment|
+      = render 'comment', comment: comment
 
-table.table.table-striped
-  thead
-    tr
-        th Message
-        th Actions
+  = render 'partials/posts', post: post
 
-  - comments.each do |comment|
-    tr
-      td= comment.message
-      td.actions
-        = link_to(comment, class: 'btn') do
-          i.icon-eye-open
-          |  Show
-        = link_to(edit_comment_path(comment), class: 'btn') do
-          i.icon-edit
-          |  Edit
-        = link_to(comment, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
-          i.icon-trash.icon-white
-          |  Delete
-
-.paginator
-  = paginate(comments)
-
-br
-= link_to new_comment_path, class: 'btn btn-primary' do
-  i.icon-plus.icon-white
-  |  New Comment
-
-
+  hr
+    .paginator
+      = paginate comments

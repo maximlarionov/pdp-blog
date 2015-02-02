@@ -23,11 +23,11 @@
   br
   br
   ul.button-group
-    / li
-    /   = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ]'
-    / - if (post.user_id == current_user.id)
     li
-      = link_to 'Edit', edit_post_path(post), class: 'button [ radius success ]'
-    li
-      = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'
+      = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ]'
+    - if (post.user_id == current_user.id)
+      li
+        = link_to 'Edit', edit_post_path(post), class: 'button [ radius success ]'
+      li
+        = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'
   br

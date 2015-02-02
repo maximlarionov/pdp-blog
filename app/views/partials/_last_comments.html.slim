@@ -1,0 +1,15 @@
+.well.comments
+    h4 Last comments
+    .row
+      .col-lg-8
+        .ul.list-unstyled
+          - post.comments.recent.each do |comment|
+            .li
+              h5
+                strong= comment.user.to_s.titleize
+                ' :
+              h6
+                = comment.message
+              '
+              = comment.time
+              hr

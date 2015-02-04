@@ -7,4 +7,4 @@
     = comment.time
   p
     - if (comment.user_id == current_user.id)
-      = link_to 'Destroy', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'
+      = link_to 'Destroy', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'button [ radius alert ]'

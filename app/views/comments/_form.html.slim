@@ -1,5 +1,5 @@
 .comment-area
-  = form_for([post, post.comments.build]) do |f|
+  = simple_form_for [post, post.comments.build], remote: true do |f|
     .comment-form
       h4 Leave a Comment:
       form role="form"

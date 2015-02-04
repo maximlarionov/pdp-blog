@@ -12,12 +12,18 @@ class CommentsController < ApplicationController
   def create
     comment = comments.new(comment_params)
     comment.save
-    redirect_to posts_path(post)
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   def destroy
     comment.destroy
-    redirect_to post_path(post)
+    respond_to do |format|
+      format.html { redirect_to post_comments_path(post) }
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   private

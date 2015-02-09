@@ -5,13 +5,20 @@ $(document).ready ->
   $post = $('.post-main')
   $edit = $('.post-edit')
 
+  $text = $('.text')
+
+  $text.shorten(
+    showChars: '300',
+    moreText: 'read more'
+  )
+
   $editButton.on 'click', (e) ->
     e.preventDefault()
-    $(this).offsetParent().find($post).slideToggle()
-    $(this).offsetParent().find($edit).slideToggle()
+    $(@).offsetParent().find($post).slideToggle()
+    $(@).offsetParent().find($edit).slideToggle()
 
   $backButton.on 'click', (e) ->
     e.preventDefault()
-    $(this).offsetParent().find($post).slideToggle()
-    $(this).offsetParent().find($edit).slideToggle()
+    $(@).offsetParent().find($post).slideToggle()
+    $(@).offsetParent().find($edit).slideToggle()
 

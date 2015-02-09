@@ -6,7 +6,7 @@
       = f.file_field :picture
       / .switch.round
       = f.input :published, as: :radio_buttons
-      = f.input :body, required: true
+      = f.input :body, required: true, :input_html => {:maxlength => 140, :size => 80}
     .form-actions
       = f.button :submit, remote: true
       '  or

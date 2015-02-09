@@ -1,10 +1,12 @@
-.well.comment-show
-  h3
-    = comment.user.to_s.titleize
-  p
-    = comment.message
-  p
-    = comment.time
-  p
+.comment-show.row
+  .small-6.large-8.columns.left
+    h3
+      = comment.user.to_s.titleize
+    p
+      = comment.message
+    p
+      = comment.time
+  .small-1.large-1.columns.left
     - if (comment.user_id == current_user.id)
-      = link_to 'Destroy', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'button [ radius alert ]'
+      i
+        = link_to '', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

@@ -9,14 +9,13 @@
       =post.created
     div.title
       h3 = post.title.to_s.titleize
-    br
     div.text
       = post.body
     div.picture
       = image_tag(post.picture.url(:medium), class: "picture")
+    hr
     br
-    br
-    ul.button-group
+    div.ul.button-group
       li
         = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ] to-comments-button'
       - if (post.user_id == current_user.id)

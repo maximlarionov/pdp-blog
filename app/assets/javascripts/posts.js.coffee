@@ -5,13 +5,6 @@ $(document).ready ->
   $post = $('.post-main')
   $edit = $('.post-edit')
 
-  $text = $('.text')
-
-  $text.shorten(
-    showChars: '300',
-    moreText: 'read more'
-  )
-
   $editButton.on 'click', (e) ->
     e.preventDefault()
     $(@).offsetParent().find($post).slideToggle()

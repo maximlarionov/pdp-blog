@@ -21,14 +21,10 @@ class PostsController < ApplicationController
 
   def destroy
     post.destroy
-    respond_with(posts)
+    redirect_to posts_path
   end
 
   private
-
-  def self.editable?
-
-  end
 
   def post_params
     params.require(:post).permit(:title, :body, :picture, :published).merge(user: current_user)

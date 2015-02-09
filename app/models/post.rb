@@ -15,10 +15,10 @@ class Post < ActiveRecord::Base
   end
 
    def created
-     created_at.strftime("%I:%M %p | %b %d, %Y")
+     created_at.strftime("%d %b at %I:%M %p")
    end
 
    def updated
-    updated_at.strftime("%I:%M %p | %b %d, %Y")
+    updated_at.strftime("%d %b at %I:%M %p")
    end
 end

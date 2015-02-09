@@ -8,23 +8,26 @@ class PostsController < ApplicationController
 
   def create
     flash[:notice] = 'Post was successfully created.' if post.save
-    respond_with(post)
+    redirect_to post_comments_path(post)
   end
 
   def update
-    flash[:notice] = 'Post was successfully updated.' if post.save && post.editable?
-    respond_with(post)
+    flash[:notice] = 'Post was successfully updated.' if post.save && post.user == current_user
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   def destroy
     post.destroy
-    respond_with(post)
+    respond_with(posts)
   end
 
   private
 
   def self.editable?
-    post.user == current_user
+
   end
 
   def post_params

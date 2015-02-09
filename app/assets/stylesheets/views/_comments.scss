@@ -1,9 +1,16 @@
-  .col-lg-4 {
-    float: right;
-    margin-top: 40px;
-    width: 300px;
-  }
-
   .comment-area {
     display: none;
+  }
+
+  .avatar {
+    &:hover {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: ease-in-ou
+    }
+  }
+
+  .message {
+    font-size: 90%
   }

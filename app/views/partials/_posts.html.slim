@@ -1,33 +1,28 @@
-.small-6.large-5.columns
+.small-1.large-1.columns.left
   .avatar
     = image_tag(post.user.avatar.url(:thumb), class: "avatar")
-  .h1 = post.title.to_s.titleize
-  span.user_name
-    .glyphicon.glyphicon-user
-    'Posted by&nbsp
-    = post.user.to_s.titleize
-  br
-  span.date
-    .posted
-      .glyphicon.glyphicon-time
-      'Posted on&nbsp
+.small-6.large-5.columns
+  div.post-main
+    div.user_name
+      = post.user.full_name
+    div.date
       =post.created
-    .updated
-      .glyphicon.glyphicon-time
-      'Updated on&nbsp
-      =post.updated
-  div.text
-    = post.body
-  .picture
-    = image_tag(post.picture.url(:medium), class: "picture")
-  br
-  br
-  ul.button-group
-    li
-      = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ]'
-    - if (post.user_id == current_user.id)
+    div.title
+      h3 = post.title.to_s.titleize
+    br
+    div.text
+      = post.body
+    div.picture
+      = image_tag(post.picture.url(:medium), class: "picture")
+    br
+    br
+    ul.button-group
       li
-        = link_to 'Edit', edit_post_path(post), class: 'button [ radius success ]'
-      li
-        = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'
-  br
+        = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ] to-comments-button'
+      - if (post.user_id == current_user.id)
+        li
+          = link_to 'Edit', '#', class: 'button [ radius success ] edit-button'
+        li
+          = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'
+  div.post-edit
+    = render 'posts/form', post: post

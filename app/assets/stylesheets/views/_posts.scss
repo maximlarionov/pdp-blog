@@ -2,12 +2,12 @@
     border-radius: 50%;
   }
 
-  .paginator {
-    text-align: center;
+  .row {
+    width: 900px;
   }
 
-  .col-lg-8 {
-    float: left;
+  .paginator {
+    text-align: center;
   }
 
   .date {
@@ -15,14 +15,32 @@
     top: 10px;
   }
 
+  .title {
+    padding-top: 10px;
+  }
+
   .text {
+    margin-top: 10px;
+    position: relative;
+    top: 20px;
+    &.post_body {
+      position: relative;
+      top: -20px;
+    }
+  }
+
+  .picture {
     margin-top: 10px;
     position: relative;
     top: 20px;
   }
 
-   .picture {
-    margin-top: 10px;
-    position: relative;
-    top: 20px;
+  .columns {
+    padding-top: 10px;
   }
+
+  .post-edit {
+    display: none;
+  }
+
+

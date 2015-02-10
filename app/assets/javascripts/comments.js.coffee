@@ -3,10 +3,14 @@ $(document).ready ->
   $form = $('.comment-area')
   $message = $('.message')
 
-  $message.shorten({
-    showChars: '100',
-    moreText: 'more',
-    lessText: 'less'
+  $message.jTruncate({
+    length: 120,
+    minTrail: 0,
+    moreText: "more",
+    lessText: "less",
+    ellipsisText: "...",
+    moreAni: 300,
+    lessAni: 300
   })
 
   $createButton.on 'click', (e) ->

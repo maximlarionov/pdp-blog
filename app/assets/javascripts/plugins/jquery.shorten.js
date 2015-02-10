@@ -1,60 +1,59 @@
-/*
- * jQuery Shorten plugin 1.0.0
- *
- * Copyright (c) 2013 Viral Patel
- * http://viralpatel.net
- *
- * Dual licensed under the MIT license:
- *   http://www.opensource.org/licenses/mit-license.php
- */
+(function($){
+  $.fn.jTruncate = function(options) {
 
- (function($) {
-  $.fn.shorten = function (settings) {
-
-    var config = {
-      showChars: 100,
-      ellipsesText: "...",
+    var defaults = {
+      length: 300,
+      minTrail: 20,
       moreText: "more",
-      lessText: "less"
+      lessText: "less",
+      ellipsisText: "...",
+      moreAni: "",
+      lessAni: ""
     };
 
-    if (settings) {
-      $.extend(config, settings);
-    }
+    var options = $.extend(defaults, options);
 
-    $(document).off("click", '.morelink');
+    return this.each(function() {
+      obj = $(this);
+      var body = obj.html();
 
-    $(document).on({click: function () {
+      if(body.length > options.length + options.minTrail) {
+        var splitLocation = body.indexOf(' ', options.length);
+        if(splitLocation != -1) {
+          // truncate tip
+          var splitLocation = body.indexOf(' ', options.length);
+          var str1 = body.substring(0, splitLocation);
+          var str2 = body.substring(splitLocation, body.length - 1);
+          obj.html(str1 + '<span class="truncate_ellipsis">' + options.ellipsisText +
+            '</span>' + '<span class="truncate_more">' + str2 + '</span>');
+          obj.find('.truncate_more').css("display", "none");
 
-        var $this = $(this);
-        if ($this.hasClass('less')) {
-          $this.removeClass('less');
-          $this.html(config.moreText);
-        } else {
-          $this.addClass('less');
-          $this.html(config.lessText);
+          // insert more link
+          obj.append(
+            '<div class="clearboth">' +
+              '<a href="#" class="truncate_more_link">' + options.moreText + '</a>' +
+            '</div>'
+          );
+
+          // set onclick event for more/less link
+          var moreLink = $('.truncate_more_link', obj);
+          var moreContent = $('.truncate_more', obj);
+          var ellipsis = $('.truncate_ellipsis', obj);
+          moreLink.click(function() {
+            if(moreLink.text() == options.moreText) {
+              moreContent.show(options.moreAni);
+              moreLink.text(options.lessText);
+              ellipsis.css("display", "none");
+            } else {
+              moreContent.hide(options.lessAni);
+              moreLink.text(options.moreText);
+              ellipsis.css("display", "inline");
+            }
+            return false;
+            });
         }
-        $this.parent().prev().toggle();
-        $this.prev().toggle();
-        return false;
-      }
-    }, '.morelink');
+      } // end if
 
-    return this.each(function () {
-      var $this = $(this);
-      if($this.hasClass("shortened")) return;
-
-      $this.addClass("shortened");
-      var content = $this.html();
-      if (content.length > config.showChars) {
-        var c = content.substr(0, config.showChars);
-        var h = content.substr(config.showChars, content.length - config.showChars);
-        var html = c + '<span class="moreellipses">' + config.ellipsesText + ' </span><span class="morecontent"><span>' + h + '</span> <a href="#" class="morelink">' + config.moreText + '</a></span>';
-        $this.html(html);
-        $(".morecontent span").hide();
-      }
     });
-
   };
-
- })(jQuery);
+})(jQuery);

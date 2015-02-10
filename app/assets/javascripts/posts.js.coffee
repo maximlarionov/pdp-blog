@@ -7,10 +7,14 @@ $(document).ready ->
 
   $text = $('.text')
 
-  $text.shorten({
-    showChars: '250',
-    moreText: 'more',
-    lessText: 'less'
+  $text.jTruncate({
+    length: 200,
+    minTrail: 0,
+    moreText: "more",
+    lessText: "less",
+    ellipsisText: "...",
+    moreAni: 300,
+    lessAni: 300
   })
 
   $editButton.on 'click', (e) ->

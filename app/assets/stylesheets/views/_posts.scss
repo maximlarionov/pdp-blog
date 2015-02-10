@@ -1,5 +1,11 @@
   .avatar{
     border-radius: 50%;
+    &:hover {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: ease-in-ou
+    }
   }
 
   .row {
@@ -30,6 +36,9 @@
     &.post_body {
       position: relative;
       top: -20px;
+      &.shortened .morelink {
+        display: none;
+      }
     }
   }
 

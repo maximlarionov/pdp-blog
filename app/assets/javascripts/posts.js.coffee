@@ -7,14 +7,9 @@ $(document).ready ->
 
   $text = $('.text')
 
-  $text.jTruncate({
-    length: 200,
-    minTrail: 0,
-    moreText: "more",
-    lessText: "less",
-    ellipsisText: "...",
-    moreAni: 300,
-    lessAni: 300
+  $text.readmore({
+    blockCSS: 'position: relative; top: 20px;'
+    collapsedHeight: 210
   })
 
   $editButton.on 'click', (e) ->

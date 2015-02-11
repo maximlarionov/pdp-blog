@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   expose(:comments) { post.comments.order('created_at desc').page params[:page] }
 
   def index
-
   end
 
   def create
@@ -14,7 +13,7 @@ class CommentsController < ApplicationController
     comment.save
     respond_to do |format|
       format.html { redirect_to posts_path }
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
   end
 
@@ -22,7 +21,7 @@ class CommentsController < ApplicationController
     comment.destroy
     respond_to do |format|
       format.html { redirect_to post_comments_path(post) }
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
   end
 

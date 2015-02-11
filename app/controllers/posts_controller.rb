@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     flash[:notice] = 'Post was successfully updated.' if post.save && post.user == current_user
     respond_to do |format|
       format.html { redirect_to posts_path }
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
   end
 

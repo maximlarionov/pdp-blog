@@ -1,0 +1,9 @@
+.comment-area
+  = simple_form_for [post, post.comments.build], remote: true do |f|
+    .comment-form
+      h4 Leave a Comment:
+      form role="form"
+        .form-group
+          = f.text_area :message
+        button.button.radius
+          .comment-submit type="submit" Submit

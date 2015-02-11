@@ -1,0 +1,14 @@
+.scaffold-form
+  = simple_form_for post, html: { multipart: true } do |f|
+    .form-inputs
+      = f.input :title, required: true
+      = f.label :picture, required: true
+      = f.file_field :picture
+      / .switch.round
+      = f.input :published, as: :radio_buttons
+      = f.input :body, required: true
+    .form-actions
+      = f.button :submit, remote: true
+      '  or
+      = link_to 'Back', '#', class: 'back-button'
+

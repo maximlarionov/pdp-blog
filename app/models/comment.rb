@@ -9,6 +9,6 @@ class Comment < ActiveRecord::Base
   paginates_per 4
 
   def time
-    self.created_at.strftime("%d %b at %I:%M %p")
+    created_at.strftime('%d %b at %I:%M %p')
   end
 end

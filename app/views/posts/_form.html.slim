@@ -4,9 +4,8 @@
       = f.input :title, required: true
       = f.label :picture, required: true
       = f.file_field :picture
-      / .switch.round
       = f.input :published, as: :radio_buttons
-      = f.input :body, required: true
+      = f.input :body, class: 'one-two-three', required: true
     .form-actions
       = f.button :submit, remote: true
       '  or

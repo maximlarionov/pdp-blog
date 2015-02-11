@@ -5,7 +5,7 @@ $(document).ready ->
   $post = $('.post-main')
   $edit = $('.post-edit')
 
-  $text = $('.text')
+  $text = $('.post_text')
 
   $text.readmore({
     blockCSS: 'position: relative; top: 20px;'

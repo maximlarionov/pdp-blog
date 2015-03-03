@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
                     },
                     default_url: '/images/:style/missing.png',
                     dropbox_credentials: Rails.root.join('config/dropbox.yml'),
-                    dropbox_options: ''
+                    dropbox_visibility: 'public'
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
   paginates_per 3

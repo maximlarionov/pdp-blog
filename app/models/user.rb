@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
                     },
                     default_url: '/images/:style/missing.png',
                     dropbox_credentials: Rails.root.join('config/dropbox.yml'),
-                    dropbox_options: ''
+                    dropbox_visibility: 'public'
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 

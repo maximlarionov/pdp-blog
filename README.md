@@ -1,3 +1,12 @@
+PDP Blog
+
+Semaphore build status
+
+[![Build Status](https://semaphoreapp.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/347247/badge.png)](https://semaphoreapp.com/maximlarionov/pdp-blog)
+
+
+___________________________________________________________________________
+
 # Rails Base
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/31b68af8b073708a56e4e005bbcba2af4802816d/76140/shields_badge.png)](https://semaphoreapp.com/fs/rails-base)

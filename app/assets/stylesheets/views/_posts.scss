@@ -1,0 +1,57 @@
+  .avatar{
+    border-radius: 50%;
+    &:hover {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: ease-in-ou
+    }
+  }
+
+  .row {
+    width: 900px;
+  }
+
+  #post_body{
+    height: 210px;
+  }
+
+  .paginator {
+    text-align: center;
+  }
+
+  .date {
+    position: relative;
+    top: 10px;
+  }
+
+  .title {
+    padding-top: 10px;
+  }
+
+  .text {
+    margin-top: 10px;
+    position: relative;
+    top: 20px;
+    &.post_body {
+      position: relative;
+      top: -20px;
+      & .truncate_more_link {
+        display: none;
+      }
+    }
+  }
+
+  .picture {
+    margin-top: 10px;
+    position: relative;
+    top: 20px;
+  }
+
+  .columns {
+    padding-top: 10px;
+  }
+
+  .post-edit {
+    display: none;
+  }

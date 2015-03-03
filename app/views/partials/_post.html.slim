@@ -1,0 +1,20 @@
+.user_name
+  = post.user.full_name
+.date
+  =post.created
+.title
+  h3 = post.title.to_s.titleize
+.text.post_text
+  = post.body
+.picture
+  = image_tag(post.picture.url(:medium), class: "picture")
+hr
+br
+.ul.button-group
+  li
+    = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ] to-comments-button'
+  - if (post.user_id == current_user.id)
+    li
+      = link_to 'Edit', '#', class: 'button [ radius success ] edit-button'
+    li
+          = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button [ radius alert ]'

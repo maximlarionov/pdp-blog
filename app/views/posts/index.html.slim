@@ -1,0 +1,13 @@
+.head
+  .body
+    -posts.each do |post|
+      -if (!post.published || current_user == post.user)
+        .container
+          .row
+            = render 'partials/posts', post: post
+            = render 'partials/comments', post: post
+    - if posts.size > 3
+      .paginator
+        hr
+        = paginate posts
+        hr

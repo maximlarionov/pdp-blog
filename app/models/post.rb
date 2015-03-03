@@ -3,7 +3,15 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, :body, presence: true
 
-  has_attached_file :picture, styles: { medium: '600x500>', thumb: '100x100>' }, default_url: '/images/:style/missing.png'
+  has_attached_file :picture,
+                    styles: {
+                      medium: '600x500>',
+                      thumb: '100x100>'
+                    },
+                    default_url: '/images/:style/missing.png',
+                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_options: ''
+
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
   paginates_per 3
 

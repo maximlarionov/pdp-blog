@@ -4,8 +4,8 @@
       -if (!post.published || current_user == post.user)
         .container
           .row
-            = render 'partials/posts', post: post
-            = render 'partials/comments', post: post
+            = render 'posts/posts', post: post
+            = render 'comments/comments', post: post
     - if posts.size > 3
       .paginator
         hr

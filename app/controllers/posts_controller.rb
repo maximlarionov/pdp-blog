@@ -3,8 +3,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   expose(:post, attributes: :post_params)
-  expose(:posts) { Post.includes(comments: :user).order('created_at desc').page params[:page] }
-  expose(:comments) { post.comments.order('created_at desc').page params[:page] }
+  expose(:posts) { Post.includes(:user).order('created_at desc').page params[:page] }
 
   def create
     flash[:notice] = 'Post was successfully created.' if post.save
@@ -13,10 +12,7 @@ class PostsController < ApplicationController
 
   def update
     flash[:notice] = 'Post was successfully updated.' if post.save && post.user == current_user
-    respond_to do |format|
-      format.html { redirect_to posts_path }
-      format.js { render inline: 'location.reload();' }
-    end
+    redirect_to :back
   end
 
   def destroy

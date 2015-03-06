@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   respond_to :html
 
   expose(:post, attributes: :post_params)
-  expose(:posts) { Post.includes(:user).order('created_at desc').page params[:page] }
+  expose(:posts) { Post.ordered.with_user.page params[:page] }
+
+  expose(:post_presenter) { post.decorate }
+  expose(:posts_presenter) { posts.decorate }
 
   def create
     flash[:notice] = 'Post was successfully created.' if post.save

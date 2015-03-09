@@ -9,9 +9,6 @@ class CommentsController < ApplicationController
   expose(:comment_presenter) { comment.decorate }
   expose(:comments_presenter) { comments.decorate }
 
-  def index
-  end
-
   def create
     comment = comments.new(comment_params)
     comment.save

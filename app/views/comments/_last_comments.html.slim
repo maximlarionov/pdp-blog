@@ -6,7 +6,7 @@
           - post.comments.recent.decorate.each do |comment|
             .li
               h5
-                strong= comment.user.to_s.titleize
+                strong= comment.author
                 ' :
                 span.message
                   = comment.message

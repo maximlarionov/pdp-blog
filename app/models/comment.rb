@@ -7,8 +7,4 @@ class Comment < ActiveRecord::Base
   scope :recent, -> { limit(4) }
 
   paginates_per 4
-
-  def time
-    created_at.strftime('%d %b at %I:%M %p')
-  end
 end

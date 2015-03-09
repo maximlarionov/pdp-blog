@@ -15,19 +15,6 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
   paginates_per 3
 
-  def was_updated?
-    created_at != updated_at
-  end
-
-  def author?
-    user_id == current_user.id
-  end
-
-  def created
-    created_at.strftime('%d %b at %I:%M %p')
-  end
-
-  def updated
-    updated_at.strftime('%d %b at %I:%M %p')
-  end
+  scope :ordered, -> { order('created_at desc') }
+  scope :with_user, -> { includes(:user) }
 end

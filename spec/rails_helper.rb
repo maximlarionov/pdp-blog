@@ -11,6 +11,10 @@ end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+Draper::ViewContext.test_strategy :fast do
+  include ApplicationHelper
+end
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!

@@ -3,7 +3,7 @@
     .row
       .small-10.large-10.columns
         .ul.list-unstyled
-          - post.comments.recent.each do |comment|
+          - post.comments.recent.decorate.each do |comment|
             .li
               h5
                 strong= comment.user.to_s.titleize

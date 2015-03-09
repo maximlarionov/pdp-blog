@@ -4,11 +4,12 @@
         h4 Comments
         .input-group.comment-button
           a.button.radius.success href="" role="button" Create Comment
-        = render 'form', post: post
-    - comments.includes(:user).order(:created_at).each do |comment|
+        = render 'form', post: post_presenter
+
+    - comments_presenter.each do |comment|
       = render 'comment', comment: comment
 
-  = render 'posts/posts', post: post
+  = render 'posts/posts', post: post_presenter
 
   hr
     .paginator

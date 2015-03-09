@@ -3,5 +3,7 @@
 FactoryGirl.define do
   factory :comment do
     message 'MyText'
+    association :post
+    association :user
   end
 end

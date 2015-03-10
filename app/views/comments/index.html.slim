@@ -4,7 +4,7 @@
         h4 Comments
         .input-group.comment-button
           a.button.radius.success href="" role="button" Create Comment
-        = render 'form', post: post_presenter
+        = render 'form', post: post
 
     - comments_presenter.each do |comment|
       = render 'comment', comment: comment

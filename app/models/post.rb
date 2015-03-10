@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
+  validates :title, :body, :user, presence: true
   belongs_to :user
   has_many :comments, dependent: :destroy
-  validates :title, :body, :user, presence: true
 
   has_attached_file :picture,
                     styles: {

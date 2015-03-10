@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   expose(:comments_presenter) { comments.decorate }
 
   def create
-    comment = comments.new(comment_params)
+    # comment = comments.new(comment_params)
     comment.save
     respond_to do |format|
       format.html { redirect_to posts_path }

@@ -23,6 +23,8 @@ RSpec.configure do |config|
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
 
   config.before do
     ActionMailer::Base.deliveries.clear

@@ -8,17 +8,26 @@ class PostsController < ApplicationController
   expose(:posts_presenter) { posts.decorate }
 
   def create
-    flash[:notice] = 'Post was successfully created.' if post.save
-    redirect_to post_comments_path(post)
+    if post.save
+      flash[:success] = 'Post was successfully created.'
+      redirect_to post_comments_path(post)
+    else
+      respond_with post
+    end
   end
 
   def update
-    flash[:notice] = 'Post was successfully updated.' if post.save && post.user == current_user
+    if post.save && post.user == current_user
+      flash[:success] = 'Post was successfully updated.'
+    else
+      flash[:alert] = "Post wasn't successfully updated."
+    end
     redirect_to :back
   end
 
   def destroy
     post.destroy
+    flash[:success] = 'Post was successfully destroyed.'
     redirect_to posts_path
   end
 

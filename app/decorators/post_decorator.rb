@@ -12,4 +12,8 @@ class PostDecorator < Draper::Decorator
   def updated
     updated_at.strftime('%d %b at %I:%M %p')
   end
+
+  def commentable
+    comments.recent.includes(:user).decorate
+  end
 end

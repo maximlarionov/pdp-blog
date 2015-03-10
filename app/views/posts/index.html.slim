@@ -1,7 +1,7 @@
 .head
   .body
     - posts_presenter.each do |post|
-      - if (!post.published || current_user == post.user)
+      - if (!post.published? || current_user == post.user)
         .container
           .row
             = render 'posts/posts', post: post
@@ -11,3 +11,4 @@
         hr
         = paginate posts
         hr
+    = render "footer"

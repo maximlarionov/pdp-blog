@@ -4,7 +4,7 @@
   =post.created
 .title
   h3 = post.title.to_s.titleize
-.text.post_text
+.post_text
   = post.body
 .picture
   = image_tag(post.picture.url(:medium), class: "picture")

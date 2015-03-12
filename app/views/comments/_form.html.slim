@@ -4,6 +4,6 @@
       h4 Leave a Comment:
       form role="form"
         .form-group
-          = f.text_area :message
+          = f.text_area :message, required: true
         button.button.radius
           .comment-submit type="submit" Submit

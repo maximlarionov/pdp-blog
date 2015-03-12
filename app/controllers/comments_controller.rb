@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   expose(:post)
   expose(:comment, attributes: :comment_params)
-  expose(:comments) { post.comments.includes(:user).order(:created_at).page params[:page] }
+  expose(:comments) { post.comments.includes(:user).order('created_at desc').page params[:page] }
 
   expose(:post_presenter) { post.decorate }
   expose(:comment_presenter) { comment.decorate }

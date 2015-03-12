@@ -14,7 +14,7 @@ class PostDecorator < Draper::Decorator
   end
 
   def commentable
-    comments.recent.includes(:user).decorate
+    comments.recent.includes(:user).order('created_at desc').decorate
   end
 
   def should_paginate?

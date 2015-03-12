@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Add Article' do
+feature 'Add Post' do
   let(:user) { create(:user, :confirmed) }
 
   before do

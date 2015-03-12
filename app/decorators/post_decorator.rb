@@ -16,4 +16,8 @@ class PostDecorator < Draper::Decorator
   def commentable
     comments.recent.includes(:user).decorate
   end
+
+  def should_paginate?
+    self.all.size > 3
+  end
 end

@@ -24,6 +24,7 @@ RSpec.configure do |config|
   config.include EmailSpec::Matchers
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
+  config.include Devise::TestHelpers, type: :controller
   Warden.test_mode!
 
   config.before do

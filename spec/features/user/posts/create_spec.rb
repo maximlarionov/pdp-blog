@@ -34,7 +34,7 @@ feature 'Add Post' do
     expect(page).to have_css '.error'
 
     within('.alert-box') do
-      expect(page).to have_content "Please review the problems below"
+      expect(page).to have_content 'Please review the problems below'
     end
 
     within('.post_title') do

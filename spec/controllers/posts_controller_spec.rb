@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe PostsController do
 
@@ -85,10 +85,11 @@ describe PostsController do
       end
 
       subject { response }
+
       before do
         request.env['HTTP_REFERER'] = 'http://test.host/posts'
         do_update
-     end
+      end
 
       context 'with valid params' do
         it { is_expected.to redirect_to(:back) }
@@ -106,7 +107,7 @@ describe PostsController do
     describe '#destroy' do
       let!(:article) { create(:post) }
 
-      it "deletes the post" do
+      it 'deletes the post' do
         expect { delete :destroy, id: article }.to change(Post, :count).by(-1)
       end
     end

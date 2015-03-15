@@ -18,6 +18,6 @@ class PostDecorator < Draper::Decorator
   end
 
   def should_paginate?
-    self.all.size > 3
+    all.size > 3
   end
 end

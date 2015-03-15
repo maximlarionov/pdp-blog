@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Add comment to existing post' do
   let(:user) { create(:user, :confirmed) }
-  let(:post) { create(:post, user: user, title: "My Post") }
+  let(:post) { create(:post, user: user, title: 'My Post') }
   let!(:comment) { create(:comment, user: user, post: post, message: 'I made a Comment!') }
 
   before do

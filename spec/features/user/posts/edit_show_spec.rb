@@ -4,8 +4,8 @@ feature 'See Posts' do
   let(:user) { create(:user, :confirmed) }
   let(:another_user) { create(:user, :confirmed) }
 
-  let!(:post) { create(:post, user: user, title: "My Post") }
-  let!(:another_post) { create(:post, user: another_user, title: "His post") }
+  let!(:post) { create(:post, user: user, title: 'My Post') }
+  let!(:another_post) { create(:post, user: another_user, title: 'His post') }
 
   before do
     login_as user
@@ -31,7 +31,7 @@ feature 'See Posts' do
       end
 
       scenario 'I see his post' do
-        expect(page).to have_content("His post")
+        expect(page).to have_content('His post')
       end
 
       scenario 'I do not see edit and destroy buttons' do

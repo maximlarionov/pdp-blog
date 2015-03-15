@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   def create
     if comment.save
-      flash[:success] = "Post was successfully created."
+      flash[:success] = 'Post was successfully created.'
       do_respond
     else
       flash[:alert] = "Post wasn't successfully created."

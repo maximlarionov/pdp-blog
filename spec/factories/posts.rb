@@ -8,7 +8,7 @@ FactoryGirl.define do
     association :user
   end
 
-  factory :private_post, :parent => :post do
+  factory :private_post, parent: :post do
     published false
   end
 end

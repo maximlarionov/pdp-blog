@@ -14,12 +14,11 @@ feature 'Add comment to existing post' do
   scenario 'I see "create comment" sidebar' do
     within('.comments-index') do
       expect(page).to have_content('Comments')
-      expect(page).to have_content('Create Comment')
+      expect(page).to have_content('New Comment')
     end
   end
 
   scenario 'I see existing comments' do
-    binding.pry
     expect(page).to have_content('I made a Comment!')
   end
 end

@@ -19,18 +19,18 @@ describe PostsController do
     end
 
     describe '#update' do
-      let!(:post) { create(:post) }
+      let!(:article) { create(:post) }
 
-      before { patch :update, id: post.id }
+      before { patch :update, id: article.id }
 
       its(:status) { is_expected.to eq(302) }
       it { is_expected.to redirect_to(new_user_session_path) }
     end
 
     describe '#delete' do
-      let!(:post) { create(:post) }
+      let!(:article) { create(:post) }
 
-      before { delete :destroy, id: post }
+      before { delete :destroy, id: article }
 
       its(:status) { is_expected.to eq(302) }
       it { is_expected.to redirect_to(new_user_session_path) }
@@ -77,37 +77,37 @@ describe PostsController do
     end
 
     describe '#update' do
-      let!(:post) { create(:post, user: user) }
+      let!(:article) { create(:post, user: user) }
       let(:new_params) { { title: 'Amazing' } }
 
       def do_update
-        patch :update, id: post.id, post: new_params, format: :html
+        patch :update, id: article.id, post: new_params, format: :html
       end
 
       subject { response }
       before do
-        request.env['HTTP_REFERER'] = 'http://localhost:5000/sessions/new'
+        request.env['HTTP_REFERER'] = 'http://test.host/posts'
         do_update
      end
 
       context 'with valid params' do
         it { is_expected.to redirect_to(:back) }
-        it { expect(post.reload.title).to eq('Amazing') }
+        it { expect(article.reload.title).to eq('Amazing') }
       end
 
       context 'with invalid params' do
         let(:new_params) { { title: 'Amazing', body: nil } }
 
         it { is_expected.to redirect_to(:back) }
-        it { expect(post.reload.title).to eq('MyString') }
+        it { expect(article.reload.title).to eq('MyString') }
       end
     end
 
     describe '#destroy' do
-      let!(:post) { create(:post) }
+      let!(:article) { create(:post) }
 
       it "deletes the post" do
-        expect { delete :destroy, id: post }.to change(Post, :count).by(-1)
+        expect { delete :destroy, id: article }.to change(Post, :count).by(-1)
       end
     end
   end

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   has_attached_file :avatar,
+                    storage: :dropbox,
                     styles: {
                       medium: '300x300>',
                       thumb: '100x100>'

@@ -1,9 +1,9 @@
 .comment-area
-  = simple_form_for [post, post.comments.build], remote: true do |f|
+  = simple_form_for [post, post.comments.build], html: { multipart: true }, remote: true do |f|
     .comment-form
       h4 Leave a Comment:
-      form role="form"
-        .form-group
-          = f.text_area :message, required: true
-        button.button.radius
-          .comment-submit type="submit" Submit
+      .form-inputs
+        = f.error_notification
+        = f.text_area :message, required: true
+      .form-actions
+        = f.button :submit, class: 'button.button.radius.comment-submit'

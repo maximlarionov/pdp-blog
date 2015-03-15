@@ -10,25 +10,30 @@ class CommentsController < ApplicationController
   expose(:comments_presenter) { comments.decorate }
 
   def create
-    # comment = comments.new(comment_params)
-    comment.save
-    respond_to do |format|
-      format.html { redirect_to posts_path }
-      format.js { render inline: 'location.reload();' }
+    if comment.save
+      flash[:success] = "Post was successfully created."
+      do_respond
+    else
+      flash[:alert] = "Post wasn't successfully created."
+      do_respond
     end
   end
 
   def destroy
     comment.destroy
-    respond_to do |format|
-      format.html { redirect_to post_comments_path(post) }
-      format.js { render inline: 'location.reload();' }
-    end
+    do_respond
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user_id: current_user.id, post_id: post.id)
+  end
+
+  def do_respond
+    respond_to do |format|
+      format.html { redirect_to post_comments_path(post) }
+      format.js { render inline: 'location.reload();' }
+    end
   end
 end

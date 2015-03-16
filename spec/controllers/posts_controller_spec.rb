@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe PostsController do
 
-  context 'when user is not authenticated' do
+  context 'when user is not authenticatedd' do
     describe '#index' do
       before { get :index }
 
-      its(:response) { is_expected.to_not be_success }
+      its(:response) { is_expected.to be_success }
     end
 
     describe '#create' do

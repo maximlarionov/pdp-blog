@@ -1,8 +1,9 @@
 #footer {
   clear: both;
   min-height: 40px;
-
+  position: relative;
+  text-align: center;
   p {
-    margin: 0;
+    margin: 5px;
   }
 }

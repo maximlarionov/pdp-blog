@@ -17,6 +17,10 @@ gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
+gem 'draper', '~> 1.3'
+gem 'paperclip'
+gem 'paperclip-dropbox', '>= 1.1.7'
+gem 'rmagick'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'active_link_to'
@@ -38,11 +42,12 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-webkit'
-  gem 'codeclimate-test-reporter', require: false
+  gem 'codeclimate-test-reporter', require: true
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'formulaic'
   gem 'launchy'
+  gem 'rspec-its'
   gem 'shoulda-matchers'
   gem 'site_prism'
   gem 'webmock', require: false

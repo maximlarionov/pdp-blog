@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   has_attached_file :picture,
-                    storage: :dropbox,
+                    storage: (Rails.env.staging? ? :dropbox : :filesystem),
                     styles: {
                       medium: '600x500>',
                       thumb: '100x100>'

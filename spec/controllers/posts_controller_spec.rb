@@ -6,7 +6,7 @@ describe PostsController do
     describe '#index' do
       before { get :index }
 
-      its(:response) { is_expected.to be_success }
+      its(:response) { is_expected.to_not be_success }
     end
 
     describe '#create' do

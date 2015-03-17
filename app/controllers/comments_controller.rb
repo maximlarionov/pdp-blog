@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   expose(:post)
   expose(:comment, attributes: :comment_params)
-  expose(:comments) { post.comments.includes(:user).order('created_at desc').page params[:page] }
+  expose(:comments) { post.comments.ordered.with_user.page params[:page] }
 
   expose(:post_presenter) { post.decorate }
   expose(:comment_presenter) { comment.decorate }
@@ -12,16 +12,16 @@ class CommentsController < ApplicationController
   def create
     if comment.save
       flash[:success] = 'Comment was successfully created.'
-      do_respond
+      redirect_to comments_anchor
     else
       flash[:alert] = "Comment wasn't successfully created."
-      do_respond
+      redirect_to comments_anchor
     end
   end
 
   def destroy
     comment.destroy
-    do_respond
+    redirect_to :back
   end
 
   private
@@ -30,10 +30,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user_id: current_user.id, post_id: post.id)
   end
 
-  def do_respond
-    respond_to do |format|
-      format.html { redirect_to post_comments_path(post, anchor: dom_id(comment)) }
-      format.js { render inline: 'location.reload();' }
-    end
+  def comments_anchor
+    request.referer + "#post_#{post.id}"
   end
 end

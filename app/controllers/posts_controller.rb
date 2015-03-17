@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     if post.save
       flash[:success] = 'Post was successfully created.'
-      redirect_to post_comments_path(post, anchor: dom_id(post))
+      redirect_to post_comments_path(post)
     else
       respond_with post
     end
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     else
       flash[:alert] = "Post wasn't successfully updated."
     end
-    redirect_to :back
+    redirect_to posts_anchor
   end
 
   def destroy
@@ -32,6 +32,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def posts_anchor
+    request.referer + "#post_#{post.id}"
+  end
 
   def post_params
     params.require(:post).permit(:title, :body, :picture, :published).merge(user: current_user)

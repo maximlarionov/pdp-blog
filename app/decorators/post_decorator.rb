@@ -17,7 +17,11 @@ class PostDecorator < Draper::Decorator
     comments.recent.includes(:user).order('created_at desc').decorate
   end
 
-  def should_paginate?
-    all.size > 3
+  def author
+    user.full_name
+  end
+
+  def author_avatar
+    user.avatar.url(:thumb)
   end
 end

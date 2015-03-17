@@ -1,0 +1,13 @@
+.user_name
+  = post.user.full_name
+.date
+  =post.created
+.title
+  h3 = post.title
+.post_text
+  = post.body
+.picture
+  = image_tag(post.picture.url(:medium), class: "picture")
+hr
+br
+= render 'shared/post_buttons', post: post

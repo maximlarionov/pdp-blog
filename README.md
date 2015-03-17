@@ -1,3 +1,15 @@
+PDP Blog
+
+Semaphore build status
+
+[![Build Status](https://semaphoreapp.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/347247/badge.png)](https://semaphoreapp.com/maximlarionov/pdp-blog)
+
+[![Code Climate](https://codeclimate.com/repos/55058edb6956800c36004b22/badges/c38bfdac6cb09d3865d9/gpa.svg)](https://codeclimate.com/repos/55058edb6956800c36004b22/feed)
+
+[![Test Coverage](https://codeclimate.com/repos/55058edb6956800c36004b22/badges/c38bfdac6cb09d3865d9/coverage.svg)](https://codeclimate.com/repos/55058edb6956800c36004b22/feed)
+
+___________________________________________________________________________
+
 # Rails Base
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/31b68af8b073708a56e4e005bbcba2af4802816d/76140/shields_badge.png)](https://semaphoreapp.com/fs/rails-base)

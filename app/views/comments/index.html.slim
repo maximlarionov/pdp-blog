@@ -1,0 +1,16 @@
+.row
+  .large-5.columns.left
+    .comments-index
+        h4 Comments
+        .input-group.comment-button
+          a.button.radius.success href="" role="button" New Comment
+        = render 'form', post: post
+
+    - comments_presenter.each do |comment|
+      = render 'comment', comment: comment
+
+  = render 'posts/posts', post: post_presenter
+
+  hr
+    .paginator
+      = paginate comments

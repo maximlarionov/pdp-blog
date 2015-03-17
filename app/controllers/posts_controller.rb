@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     if post.save
       flash[:success] = 'Post was successfully created.'
-      redirect_to post_comments_path(post)
+      redirect_to post_comments_path(post, anchor: dom_id(post))
     else
       respond_with post
     end

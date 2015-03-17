@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
 
   def do_respond
     respond_to do |format|
-      format.html { redirect_to post_comments_path(post) }
+      format.html { redirect_to post_comments_path(post, anchor: dom_id(comment)) }
       format.js { render inline: 'location.reload();' }
     end
   end

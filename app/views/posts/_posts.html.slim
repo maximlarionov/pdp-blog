@@ -7,6 +7,6 @@
       = render 'posts/post', post: post
     div.post-edit
       = render 'posts/form', post: post
-  - unless current_page?("/posts/#{post.id}/comments")
+  - unless current_page?(post_comments_path(post))
     = render 'comments/comments', post: post
 

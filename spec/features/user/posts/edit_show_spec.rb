@@ -10,7 +10,7 @@ feature 'See Posts' do
   before do
     login_as user
 
-    visit post_comments_path(post)
+    visit post_path(post)
   end
 
   describe '.#show' do
@@ -27,7 +27,7 @@ feature 'See Posts' do
 
     context 'accessing another user post' do
       before do
-        visit post_comments_path(another_post)
+        visit post_path(another_post)
       end
 
       scenario 'I see his post' do

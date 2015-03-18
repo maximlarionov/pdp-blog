@@ -4,7 +4,10 @@
       - if (post.published? || current_user == post.user)
         .container
           .row
-            = render 'posts/posts', post: post
+            = div_for(post)
+              = render 'shared/author_avatar', post: post
+              = render 'posts/post', post: post
+              = render 'comments/recent_comments', post: post
     .paginator
       hr
       = paginate posts

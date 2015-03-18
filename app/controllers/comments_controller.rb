@@ -3,11 +3,9 @@ class CommentsController < ApplicationController
 
   expose(:post)
   expose(:comment, attributes: :comment_params)
-  expose(:comments) { post.comments.includes(:user).order('created_at desc').page params[:page] }
 
-  expose(:post_presenter) { post.decorate }
-  expose(:comment_presenter) { comment.decorate }
-  expose(:comments_presenter) { comments.decorate }
+  def index
+  end
 
   def create
     if comment.save
@@ -32,7 +30,7 @@ class CommentsController < ApplicationController
 
   def do_respond
     respond_to do |format|
-      format.html { redirect_to post_comments_path(post) }
+      format.html { redirect_to post_path(post) }
       format.js { render inline: 'location.reload();' }
     end
   end

@@ -6,11 +6,15 @@ class PostsController < ApplicationController
 
   expose(:post_presenter) { post.decorate }
   expose(:posts_presenter) { posts.decorate }
+  expose(:comments) { post.comments.page params[:page] }
+
+  def index
+  end
 
   def create
     if post.save
       flash[:success] = 'Post was successfully created.'
-      redirect_to post_comments_path(post)
+      redirect_to post_path(post)
     else
       respond_with post
     end

@@ -1,12 +1,7 @@
-.comment-show.row
-  .small-6.large-6.columns.left
-    h3
-      = comment.user.to_s.titleize
-    p.message
-      = comment.message
-    p
-      = comment.time
-  .small-1.large-1.columns.left
-    - if (comment.user_id == current_user.id)
-      i
-        = link_to '', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'
+h5
+  strong = comment.author
+  ' :
+  span.message = comment.message
+'
+p = comment.time
+hr

@@ -8,10 +8,6 @@
     }
   }
 
-  .row {
-    width: 900px;
-  }
-
   #post_body{
     height: 210px;
   }
@@ -21,25 +17,12 @@
   }
 
   .date {
-    position: relative;
-    top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .title {
     padding-top: 10px;
-  }
-
-  .text .post-text{
-    margin-top: 10px;
-    position: relative;
-    top: 20px;
-    &.post_body {
-      position: relative;
-      top: -20px;
-      & .truncate_more_link {
-        display: none;
-      }
-    }
   }
 
   .picture {

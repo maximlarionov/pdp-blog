@@ -26,26 +26,4 @@ feature 'See Posts' do
   scenario 'And I can see my private posts' do
     expect(page).to have_content('Others do NOT see')
   end
-
-  describe '.pagination' do
-    context 'when there are more than 3 posts' do
-      let!(:posts) { create_list(:post, 4, user: user) }
-
-      scenario 'I can see pagination' do
-        visit posts_path
-
-        within('.paginator') do
-          expect(page).to have_css('.pagination')
-        end
-      end
-    end
-
-    context 'when there are 3 or less posts' do
-      scenario 'I do NOT see pagination' do
-        within('.paginator') do
-          expect(page).not_to have_css('.pagination')
-        end
-      end
-    end
-  end
 end

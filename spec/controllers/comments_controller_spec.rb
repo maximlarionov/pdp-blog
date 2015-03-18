@@ -43,7 +43,7 @@ describe CommentsController do
 
       context 'with invalid params' do
         before do
-          request.env['HTTP_REFERER'] = "http://test.host/posts/#{article.id}/comments"
+          request.env['HTTP_REFERER'] = "http://test.host/posts/#{article.id}"
         end
 
         subject { post :create, comment: { message: '' }, post_id: article.id }

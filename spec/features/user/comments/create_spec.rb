@@ -18,7 +18,7 @@ feature 'Add comment to existing post', js: true do
   end
 
   scenario 'I can create comment on index page' do
-    click_link 'New Comment'
+    click_button 'New Comment'
 
     within('.comment-area') do
       fill_in 'comment_message', with: 'Message123'

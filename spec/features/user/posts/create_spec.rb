@@ -22,7 +22,7 @@ feature 'Add Post' do
 
     click_button 'Create Post'
 
-    expect(current_path).to eq post_comments_path(Post.first.id)
+    expect(current_path).to eq post_path(Post.first.id)
     expect(page).to have_content 'Title'
     expect(page).to have_content 'Text'
   end

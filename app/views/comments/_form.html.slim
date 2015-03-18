@@ -1,9 +1,13 @@
-.comment-area
-  = simple_form_for [post, post.comments.build], html: { multipart: true }, remote: true do |f|
-    .comment-form
-      h4 Leave a Comment:
-      .form-inputs
-        = f.error_notification
-        = f.text_area :message, required: true
-      .form-actions
-        = f.button :submit, class: 'button.button.radius.comment-submit'
+.comments-index
+  h4 Comments
+  .input-group.comment-button
+    button.button.radius.success href="#" New Comment
+  .comment-area
+    = simple_form_for [post, post.comments.build], html: { multipart: true }, remote: true do |f|
+      .comment-form
+        h4 Leave a Comment:
+        .form-inputs
+          = f.error_notification
+          = f.text_area :message, required: true
+        .form-actions
+          = f.button :submit, class: 'button.button.radius.comment-submit'

@@ -1,7 +1,7 @@
 .ul.button-group
-  - unless current_page?(post_comments_path(post))
+  - unless current_page?(post_path(post))
     li
-      = link_to 'To Comments', post_comments_path(post), class: 'button [ radius ] to-comments-button'
+      = link_to 'To Comments', post_path(post), class: 'button [ radius ] to-comments-button'
   - if (post.user == current_user)
     li
       = link_to 'Edit', '#', class: 'button [ radius success ] edit-button'

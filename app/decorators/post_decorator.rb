@@ -13,8 +13,12 @@ class PostDecorator < Draper::Decorator
     updated_at.strftime('%d %b at %I:%M %p')
   end
 
-  def commentable
+  def recent_comments
     comments.recent.includes(:user).order('created_at desc').decorate
+  end
+
+  def all_comments
+    comments.includes(:user).order('created_at desc').decorate
   end
 
   def author

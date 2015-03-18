@@ -1,0 +1,12 @@
+.small-4.large-4.columns
+  .comments_form
+    = render 'comments/form', post: post
+
+  .comments
+    h4 Last comments
+    .row
+      .small-10.large-10.columns
+        .ul.list-unstyled
+          - post.recent_comments.each do |comment|
+            .li = render 'comments/comment', comment: comment
+

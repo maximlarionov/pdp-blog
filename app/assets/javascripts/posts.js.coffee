@@ -8,7 +8,6 @@ $(document).ready ->
   $text = $('.post_text')
 
   $text.readmore({
-    blockCSS: 'position: relative; top: 20px;'
     collapsedHeight: 210
   })
 

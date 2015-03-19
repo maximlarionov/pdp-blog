@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Rails Base example site
+    application: Rails Base PDP Blog by Max L.
     dashboard:
       index: Dashboard
     devise:
@@ -88,6 +88,20 @@ en:
         sign_out: 'Sign out'
         sign_up: 'Sign up'
         edit_profile: 'Edit profile'
+
+    post:
+      create_post: 'Create New Post'
+
+    comment:
+      recent: 'Recent Comments'
+      comments: 'Comments'
+      leave_comment: 'Leave a Comment'
+
+    button:
+      new_comment: 'New Comment'
+      to_comments: 'To Comments'
+      edit: 'Edit'
+      destroy: 'Destroy'
 
   time:
     formats:

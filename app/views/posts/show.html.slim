@@ -1,0 +1,8 @@
+.row
+  = render 'comments/all_comments', post: post_presenter
+  = render 'shared/author_avatar', post: post_presenter
+  = render 'post', post: post_presenter
+
+  hr
+    .paginator
+      = paginate comments, param_name: :comments_page

@@ -17,7 +17,6 @@ gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
-gem 'draper', '~> 1.3'
 gem 'paperclip'
 gem 'paperclip-dropbox', '>= 1.1.7'
 gem 'rmagick'

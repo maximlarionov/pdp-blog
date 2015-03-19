@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe PostDecorator do
+describe PostPresenter do
   let(:user) { create(:user, full_name: 'Obi Van Kenobi') }
   let(:post) { create(:post) }
-  let(:decorator) { post.decorate }
+  let(:presenter) { PostPresenter.wrap(post) }
 
-  context 'when decorating post' do
+  context 'when wrapping post' do
     before do
       post.created_at = 2.days.ago
       post.updated_at = post.created_at
     end
 
-    subject { decorator }
+    subject { presenter }
 
     its(:created) { is_expected.to be == post.created_at.strftime('%d %b at %I:%M %p') }
     its(:updated) { is_expected.to be == post.updated_at.strftime('%d %b at %I:%M %p') }
@@ -24,7 +24,7 @@ describe PostDecorator do
       post.updated_at = 1.day.ago
     end
 
-    subject { decorator }
+    subject { presenter }
 
     its(:was_updated?)  { is_expected.to be true }
   end

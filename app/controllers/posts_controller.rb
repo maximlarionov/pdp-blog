@@ -3,10 +3,10 @@ class PostsController < ApplicationController
 
   expose(:post, attributes: :post_params)
   expose(:posts) { Post.ordered.with_user.page params[:page] }
-
-  expose(:post_presenter) { post.decorate }
-  expose(:posts_presenter) { posts.decorate }
   expose(:comments) { post.comments.page params[:page] }
+
+  expose(:post_presenter) { PostPresenter.wrap(post) }
+  expose(:posts_presenter) { PostPresenter.wrap(posts) }
 
   def index
   end

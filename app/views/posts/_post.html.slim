@@ -12,8 +12,8 @@
       = image_tag(post.picture.url(:medium), class: "picture")
     hr
     br
-    = render 'shared/post_buttons', post: post
+    = render 'shared/post_buttons', post: post.clear
   .post-edit
-    = render 'posts/form', post: post
+    = render 'posts/form', post: post.clear
 
 

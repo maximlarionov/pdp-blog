@@ -7,6 +7,6 @@
       .small-6.large-6.columns
         = render 'comments/comment', comment: comment
       .small-1.large-1.columns.left
-        - if (comment.user == current_user)
+        - if comment.can_be_destroyed_by?(current_user)
           i
             = link_to '', [post.clear, comment.clear], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

@@ -12,7 +12,7 @@
       = image_tag(post.picture.url(:medium), class: "picture")
     hr
     br
-    = render 'shared/post_buttons', post: post.clear
+    = render 'shared/post_buttons', post: post
   .post-edit
     = render 'posts/form', post: post.clear
 

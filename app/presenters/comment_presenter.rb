@@ -17,8 +17,4 @@ class CommentPresenter < BasePresenter
   def clear
     comment
   end
-
-  def can_be_destroyed_by?(current_user)
-    user == current_user
-  end
 end

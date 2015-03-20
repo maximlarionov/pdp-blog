@@ -2,11 +2,10 @@ class PostsController < ApplicationController
   respond_to :html
 
   expose(:post, attributes: :post_params)
-  expose(:posts) { Post.ordered.with_user.page params[:page] }
-  expose(:comments) { post.comments.page params[:page] }
+  expose(:user_posts) { Post.all.with_user.page params[:page]  }
 
   expose(:post_presenter) { PostPresenter.wrap(post) }
-  expose(:posts_presenter) { PostPresenter.wrap(posts) }
+  expose(:posts_presenter) { PostPresenter.wrap(user_posts) }
 
   def index
   end
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if post.save && post.user == current_user
+    if post.save
       flash[:success] = 'Post was successfully updated.'
     else
       flash[:alert] = "Post wasn't successfully updated."

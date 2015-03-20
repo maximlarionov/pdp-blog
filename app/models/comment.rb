@@ -5,6 +5,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   scope :recent, -> { limit(4) }
-
-  paginates_per 4
+  default_scope { order('created_at desc') }
 end

@@ -16,6 +16,6 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
   paginates_per 3
 
-  scope :ordered, -> { order('created_at desc') }
   scope :with_user, -> { includes(:user) }
+  default_scope { order('created_at desc') }
 end

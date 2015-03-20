@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if post.save && post.user == current_user
+    if post.save
       flash[:success] = 'Post was successfully updated.'
     else
       flash[:alert] = "Post wasn't successfully updated."

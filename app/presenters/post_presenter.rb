@@ -34,10 +34,6 @@ class PostPresenter < BasePresenter
     user.avatar.url(:thumb)
   end
 
-  def can_be_edited_by?(current_user)
-    user == current_user
-  end
-
   def clear
     post
   end

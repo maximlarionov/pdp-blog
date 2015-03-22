@@ -19,7 +19,7 @@ feature 'See Posts' do
     expect(page).to have_content('My Post')
   end
 
-  scenario 'And I do NOT see other users private posts' do
+  scenario 'And I do NOT see other users posts' do
     expect(page).not_to have_content('U do NOT see')
   end
 

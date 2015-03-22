@@ -1,11 +1,15 @@
 class AccessPolicy
-  attr_reader :owner, :requestor
+  attr_reader :item, :requestor
 
-  def initialize(owner, requestor)
-    @owner, @requestor = owner, requestor
+  def initialize(item, requestor)
+    @item, @requestor = item, requestor
   end
 
   def allowed?
-    owner == requestor
+    item.user  == requestor
+  end
+
+  def can_access_post?
+    item.published? || allowed?
   end
 end

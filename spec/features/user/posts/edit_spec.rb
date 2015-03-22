@@ -50,20 +50,5 @@ feature 'See Posts' do
         end
       end
     end
-
-    context 'when accessing another_user post' do
-      scenario 'I do not see edit and destroy button' do
-        within('.button-group') do
-          expect(page).not_to have_content('Edit')
-          expect(page).not_to have_content('Destroy')
-        end
-      end
-
-      scenario 'I see To Comments button' do
-        within('.button-group') do
-          expect(page).to have_content('To Comments')
-        end
-      end
-    end
   end
 end

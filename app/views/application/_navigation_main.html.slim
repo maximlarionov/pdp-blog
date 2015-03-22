@@ -1,4 +1,5 @@
 ul.left
+  = active_link_to t('app.navigation.main.feed'), feed_path, active: :exlusive, wrap_tag: :li
   - if user_signed_in?
-    = active_link_to t('app.navigation.main.dashboard'), root_path, active: :exclusive, wrap_tag: :li
-    = active_link_to "New Post", new_post_path, active: :exlusive, wrap_tag: :li
+    = active_link_to t('app.navigation.main.dashboard'), posts_path, active: :exclusive, wrap_tag: :li
+    = active_link_to t('app.post.new_post'), new_post_path, active: :exlusive, wrap_tag: :li

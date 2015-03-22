@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: :feed
   protect_from_forgery
 
   helper ApplicationHelper

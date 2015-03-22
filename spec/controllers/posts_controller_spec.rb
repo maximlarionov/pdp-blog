@@ -3,10 +3,16 @@ require 'rails_helper'
 describe PostsController do
 
   context 'when user is not authenticated' do
+    describe '#feed' do
+      before { get :feed }
+
+      its(:response) { is_expected.to be_success }
+    end
+
     describe '#index' do
       before { get :index }
 
-      its(:response) { is_expected.to be_success }
+      its(:response) { is_expected.to redirect_to(new_user_session_path) }
     end
 
     describe '#create' do
@@ -43,6 +49,12 @@ describe PostsController do
 
     before { sign_in(user) }
     subject { response }
+
+    describe '#feed' do
+      before { get :feed }
+
+      it { is_expected.to be_success }
+    end
 
     describe '#index' do
       before { get :index }

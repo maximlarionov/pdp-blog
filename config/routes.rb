@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root to: 'posts#index'
+  root to: 'posts#feed'
+
+  get 'feed', controller: :posts
 end

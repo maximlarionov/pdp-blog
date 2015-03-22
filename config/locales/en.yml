@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Rails Base PDP Blog by Max L.
+    application: Rails Base PDP Blogging Tool by Max L.
     dashboard:
       index: Dashboard
     devise:
@@ -82,7 +82,8 @@ en:
 
     navigation:
       main:
-        dashboard: 'Dashboard'
+        dashboard: 'My Blog'
+        feed: 'Feed'
       user:
         sign_in: 'Sign in'
         sign_out: 'Sign out'
@@ -90,6 +91,7 @@ en:
         edit_profile: 'Edit profile'
 
     post:
+      new_post: 'New Post'
       create_post: 'Create New Post'
 
     comment:

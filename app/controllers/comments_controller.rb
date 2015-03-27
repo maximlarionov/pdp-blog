@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html
+  respond_to :js, only: :create
 
   expose(:post)
   expose(:comment, attributes: :comment_params)
@@ -9,7 +10,8 @@ class CommentsController < ApplicationController
 
   def create
     comment.save
-    do_respond
+    respond_with comment
+    # do_respond
   end
 
   def destroy

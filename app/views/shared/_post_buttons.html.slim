@@ -5,7 +5,7 @@
                 post_path(post.id),
                 class: 'button [ radius ] to-comments-button'
 
-  - if policy(post, current_user).allowed?
+  - if post.can_be_accessed_by?(current_user)
     li
       = link_to t('app.button.edit'),
                 '#',

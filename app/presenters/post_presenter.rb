@@ -1,13 +1,10 @@
 class PostPresenter < BasePresenter
   attr_reader :post
-  delegate :id, :title, :body, :picture, :published?, :user, :comments, :created_at, :updated_at, to: :post
+  delegate :id, :title, :body, :picture, :published, :user, :comments, :created_at, :updated_at, to: :post
+  delegate :to_key, :to_param, :persisted?, to: :post
 
   def initialize(post)
     @post = post
-  end
-
-  def was_updated?
-    created_at != updated_at
   end
 
   def created
@@ -34,7 +31,15 @@ class PostPresenter < BasePresenter
     user.avatar.url(:thumb)
   end
 
-  def clear
-    post
+  def can_be_accessed_by?(requestor)
+    AccessPolicy.new(post, requestor).can_manage?
+  end
+
+  def can_be_read_by?(requestor)
+    AccessPolicy.new(post, requestor).can_read?
+  end
+
+  def self.model_name
+    Post.model_name
   end
 end

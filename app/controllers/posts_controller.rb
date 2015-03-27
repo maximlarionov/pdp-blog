@@ -1,9 +1,5 @@
 class PostsController < ApplicationController
-  helper ApplicationHelper
-
   respond_to :html
-
-  before_action :authorize_user, only: %i(update destroy)
 
   expose(:post, attributes: :post_params)
   expose(:user_posts) { current_user.posts.page params[:page] }
@@ -25,19 +21,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    if post.save
-      flash[:success] = 'Post was successfully updated.'
-    else
-      flash[:alert] = "Post wasn't successfully updated."
-    end
-    redirect_to :back
-    # post.save
-    # render 'posts/_form', post: post
+    post.save if authorize_user?
+    respond_with post
   end
 
   def destroy
-    post.destroy
-    flash[:success] = 'Post was successfully destroyed.'
+    post.destroy if authorize_user?
     redirect_to posts_path
   end
 
@@ -47,7 +36,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :picture, :published).merge(user: current_user)
   end
 
-  def authorize_user
-    AccessPolicy.new(post, current_user).can_access_post?
+  def authorize_user?
+    AccessPolicy.new(post, current_user).can_manage?
   end
 end

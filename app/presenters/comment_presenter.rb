@@ -1,6 +1,7 @@
 class CommentPresenter < BasePresenter
   attr_reader :comment
   delegate :id, :message, :created_at, :user, :post, to: :comment
+  delegate :to_key, :to_param, :persisted?, to: :comment
 
   def initialize(comment)
     @comment = comment
@@ -14,7 +15,11 @@ class CommentPresenter < BasePresenter
     user.to_s.titleize
   end
 
-  def clear
-    comment
+  def can_be_accessed_by?(requestor)
+    AccessPolicy.new(comment, requestor).can_manage?
+  end
+
+  def self.model_name
+    Comment.model_name
   end
 end

@@ -47,7 +47,11 @@ describe PostsController do
     let(:user) { create(:user, confirmed_at: DateTime.now) }
     let(:params) { { post: { title: 'title', body: 'text' }, format: :html } }
 
-    before { sign_in(user) }
+    before do
+      sign_in(user)
+      controller.stub(:authorize_user?) { true }
+    end
+
     subject { response }
 
     describe '#feed' do
@@ -89,7 +93,7 @@ describe PostsController do
     end
 
     describe '#update' do
-      let!(:article) { create(:post, user: user) }
+      let!(:article) { create(:post, user: user, title: 'MyString') }
       let(:new_params) { { title: 'Amazing' } }
 
       def do_update
@@ -104,14 +108,14 @@ describe PostsController do
       end
 
       context 'with valid params' do
-        it { is_expected.to redirect_to(:back) }
+        it { is_expected.to redirect_to post_path }
         it { expect(article.reload.title).to eq('Amazing') }
       end
 
       context 'with invalid params' do
-        let(:new_params) { { title: 'Amazing', body: nil } }
+        let(:new_params) { { title: 'Amazing', body: '' } }
 
-        it { is_expected.to redirect_to(:back) }
+        it { is_expected.to be_success }
         it { expect(article.reload.title).to eq('MyString') }
       end
     end

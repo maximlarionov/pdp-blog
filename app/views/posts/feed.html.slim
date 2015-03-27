@@ -1,10 +1,10 @@
 .head
   .body
     - feed_presenter.each do |post|
-      - if policy(post, current_user).can_access_post?
+      - if post.can_be_read_by?(current_user)
         .container
           .row
-            = div_for(post.clear)
+            = div_for(post)
               = render 'shared/author_avatar', post: post
               = render 'posts/post', post: post
               = render 'comments/recent_comments', post: post

@@ -8,17 +8,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if comment.save
-      flash[:success] = 'Comment was successfully created.'
-      do_respond
-    else
-      flash[:alert] = "Comment wasn't successfully created."
-      do_respond
-    end
+    comment.save
+    do_respond
   end
 
   def destroy
-    comment.destroy
+    comment.destroy unless authorize_user?
     do_respond
   end
 
@@ -33,5 +28,9 @@ class CommentsController < ApplicationController
       format.html { redirect_to post_path(post) }
       format.js { render inline: 'location.reload();' }
     end
+  end
+
+  def authorize_user?
+    AccessPolicy.new(post, current_user).can_manage?
   end
 end

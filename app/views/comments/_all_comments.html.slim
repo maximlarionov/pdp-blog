@@ -1,12 +1,12 @@
 .small-5.large-5.columns
   .comments_form
-    = render 'comments/form', post: post.clear
+    = render 'comments/form', post: post
 
   - post.all_comments.each do |comment|
     .comment-show.row
       .small-6.large-6.columns
         = render 'comments/comment', comment: comment
       .small-1.large-1.columns.left
-        - if policy(comment.clear, current_user).allowed?
+        - if comment.can_be_accessed_by?(current_user)
           i
-            = link_to '', [post.clear, comment.clear], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'
+            = link_to '', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

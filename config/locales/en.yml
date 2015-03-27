@@ -93,6 +93,7 @@ en:
     post:
       new_post: 'New Post'
       create_post: 'Create New Post'
+      update_post: 'Update Post'
 
     comment:
       recent: 'Recent Comments'

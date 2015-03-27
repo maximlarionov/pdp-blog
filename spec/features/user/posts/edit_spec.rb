@@ -27,10 +27,6 @@ feature 'See Posts' do
         end
 
         expect(page).to have_content('New Title')
-
-        within('.alert-box') do
-          expect(page).to have_content('Post was successfully updated.')
-        end
       end
 
       scenario 'with incorrect data' do
@@ -45,9 +41,7 @@ feature 'See Posts' do
           click_button 'Update Post'
         end
 
-        within('.alert-box') do
-          expect(page).to have_content("Post wasn't successfully updated.")
-        end
+        expect(page).to have_content('Please review the problems below')
       end
     end
   end

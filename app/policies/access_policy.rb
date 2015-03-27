@@ -5,11 +5,11 @@ class AccessPolicy
     @item, @requestor = item, requestor
   end
 
-  def allowed?
-    item.user  == requestor
+  def can_manage?
+    item.user == requestor
   end
 
-  def can_access_post?
-    item.published? || allowed?
+  def can_read?
+    item.published? || can_manage?
   end
 end

@@ -2,10 +2,14 @@
   .comments_form
     = render 'comments/form', post: post
 
+  h4 = t('app.comment.recent')
+
   .comments
-    h4 = t('app.comment.recent')
-    .row
-      .small-10.large-10.columns
-        .ul.list-unstyled
-          - post.recent_comments.each do |comment|
-            .li = render 'comments/comment', comment: comment
+    - post.recent_comments.each do |comment|
+      .row
+        .small-7.large-7.columns
+          = render 'comments/comment', comment: comment
+        .small-1.large-1.columns.left
+          - if comment.can_be_accessed_by?(current_user)
+            i
+              = link_to '', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

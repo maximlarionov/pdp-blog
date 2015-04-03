@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   respond_to :html
+  respond_to :js, only: :update
 
   expose(:post, attributes: :post_params)
   expose(:user_posts) { current_user.posts.page params[:page] }
   expose(:all_posts) { Post.all.with_user.page params[:page] }
+  expose(:comment) { post.comments.new }
 
   expose(:post_presenter) { PostPresenter.wrap(post) }
   expose(:posts_presenter) { PostPresenter.wrap(user_posts) }

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html
-  respond_to :js, only: :create
+  respond_to :js
 
   expose(:post)
   expose(:comment, attributes: :comment_params)
@@ -9,27 +9,26 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment.save
-    respond_with comment
-    # do_respond
+    if comment.save
+      status = :ok
+      # render partial: 'comments/recent_comments', layout: false, status: status, locals: { post: PostPresenter.wrap(post) }
+      render inline: 'location.reload();'
+    else
+      status = :unprocessable_entity
+      render partial: 'comments/form', layout: false, status: status, locals: { comment: comment }
+    end
+
   end
 
   def destroy
-    comment.destroy unless authorize_user?
-    do_respond
+    comment.destroy if authorize_user?
+    render inline: 'location.reload();'
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user: current_user, post: post)
-  end
-
-  def do_respond
-    respond_to do |format|
-      format.html { redirect_to post_path(post) }
-      format.js { render inline: 'location.reload();' }
-    end
   end
 
   def authorize_user?

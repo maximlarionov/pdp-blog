@@ -1,13 +1,19 @@
 $(document).ready ->
-  $createButton = $('.comment-button')
+  $commentButton = $('.comment-button')
   $form = $('.comment-area')
   $message = $('.message')
+  $submit = $('.comment-submit')
 
   $message.readmore({
     collapsedHeight: 100
   })
 
-  $createButton.on 'click', (e) ->
+  $commentButton.on 'click', (e) ->
     e.preventDefault()
     $(@).parent().find($form).slideToggle()
+
+  $submit.on 'click', (e) ->
+
+
+
 

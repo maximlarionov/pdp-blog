@@ -1,7 +1,7 @@
 class CommentPresenter < BasePresenter
   attr_reader :comment
   delegate :id, :message, :created_at, :user, :post, to: :comment
-  delegate :to_key, :to_param, :persisted?, to: :comment
+  delegate :to_key, :to_param, :persisted?, :to_partial_path, to: :comment
 
   def initialize(comment)
     @comment = comment

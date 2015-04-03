@@ -1,8 +1,8 @@
-= simple_form_for [post, comment], html: { multipart: true }, data: { remote: true, behavior: 'fragments' } do |f|
+= simple_form_for comment, html: { multipart: true }, data: { remote: true, behavior: 'fragments' } do |f|
   .comment-form
     h4 = t('app.comment.leave_comment')
     .form-inputs
-      = f.hint error_show(comment, :message), data: { fragment_id: 'comment' }, class: 'error'
+      = f.hint error_show(comment, :message), data: { fragment_id: 'comment' }, class: 'error.hidden'
       = f.text_area :message, required: true
     .form-actions
-      = f.button :submit, class: 'button.button.radius.comment-submit'
+      = f.button :submit, class: 'button.radius.comment-submit'

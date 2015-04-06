@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
   expose(:post)
   expose(:comment, attributes: :comment_params)
 
+  before_action :authorize_user?, only: :destroy
+
   def index
   end
 
@@ -13,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment.destroy unless authorize_user?
+    comment.destroy
     do_respond
   end
 
@@ -31,6 +33,6 @@ class CommentsController < ApplicationController
   end
 
   def authorize_user?
-    AccessPolicy.new(post, current_user).can_manage?
+    fail NotAuthorizedError unless AccessPolicy.new(post, current_user).can_manage?
   end
 end

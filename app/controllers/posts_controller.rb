@@ -9,6 +9,8 @@ class PostsController < ApplicationController
   expose(:posts_presenter) { PostPresenter.wrap(user_posts) }
   expose(:feed_presenter) { PostPresenter.wrap(all_posts) }
 
+  before_action :authorize_user?, only: %i(update, destroy)
+
   def index
   end
 
@@ -21,12 +23,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    post.save if authorize_user?
+    post.save
     respond_with post
   end
 
   def destroy
-    post.destroy if authorize_user?
+    post.destroy
     redirect_to posts_path
   end
 
@@ -37,6 +39,6 @@ class PostsController < ApplicationController
   end
 
   def authorize_user?
-    AccessPolicy.new(post, current_user).can_manage?
+    fail NotAuthorizedError unless AccessPolicy.new(post, current_user).can_manage?
   end
 end

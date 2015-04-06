@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'paperclip'
 gem 'paperclip-dropbox', '>= 1.1.7'
 gem 'rmagick'
+gem "fragments.js", github: "fs/fragments.js"
 
 gem 'simple_form', '~> 3.0.2'
 gem 'active_link_to'

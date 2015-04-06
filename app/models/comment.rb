@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   scope :recent, -> { limit(4) }
-  default_scope { order('created_at desc') }
+  default_scope { order('created_at desc').includes(:user) }
 end

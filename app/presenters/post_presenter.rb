@@ -1,7 +1,7 @@
 class PostPresenter < BasePresenter
   attr_reader :post
   delegate :id, :title, :body, :picture, :published, :user, :comments, :created_at, :updated_at, to: :post
-  delegate :to_key, :to_param, :persisted?, to: :post
+  delegate :to_key, :to_param, :persisted?, :to_partial_path, to: :post
 
   def initialize(post)
     @post = post

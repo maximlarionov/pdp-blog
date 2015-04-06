@@ -26,9 +26,13 @@ module RailsBase
     config.slim_options = {}
 
     # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
-    config.noreply = 'noreply@fs-rails-base.heroku.com'
+    config.noreply = 'noreply@pdp-blogging-tool.heroku.com'
 
     # Default host for action mailer, initializers/mailer.rb
-    config.host = 'localhost:5000'
+    if Rails.env == 'staging'
+        config.host = 'localhost:5000'
+    else
+        config.host = 'https://fs-pdp-blog-maxim-larionov.herokuapp.com'
+    end
   end
 end

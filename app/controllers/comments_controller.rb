@@ -1,33 +1,32 @@
 class CommentsController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
 
-  expose(:post)
   expose(:comment, attributes: :comment_params)
+  expose(:post)
 
   def index
   end
 
   def create
-    comment.save
-    do_respond
+    if comment.save
+      status = :ok
+      render partial: 'discussion', post: post, layout: false
+    else
+      status = :unprocessable_entity
+      render partial: 'comments/form', layout: false, status: status, locals: { comment: comment }
+    end
+
   end
 
   def destroy
-    comment.destroy unless authorize_user?
-    do_respond
+    comment.destroy if authorize_user?
+    render inline: 'location.reload();'
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user: current_user, post: post)
-  end
-
-  def do_respond
-    respond_to do |format|
-      format.html { redirect_to post_path(post) }
-      format.js { render inline: 'location.reload();' }
-    end
   end
 
   def authorize_user?

@@ -1,0 +1,9 @@
+- post.comments.each do |comment|
+  .row
+    = div_for(comment)
+      .small-7.large-7.columns
+        = render 'comments/comment', comment: CommentPresenter.wrap(comment)
+      .small-1.large-1.columns.left
+        - if CommentPresenter.wrap(comment).can_be_accessed_by?(current_user)
+          i
+            = link_to '', comment, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

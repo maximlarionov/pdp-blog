@@ -20,4 +20,3 @@ $(document).ready ->
     e.preventDefault()
     $(@).offsetParent().find($post).slideToggle()
     $(@).offsetParent().find($edit).slideToggle()
-

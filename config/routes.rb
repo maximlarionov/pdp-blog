@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :posts do
-    resources :comments
-  end
+  resources :posts
+
+  resources :comments
 
   devise_for :users
   root to: 'posts#feed'

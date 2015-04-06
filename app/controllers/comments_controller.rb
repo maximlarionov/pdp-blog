@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
 
-  expose(:post)
   expose(:comment, attributes: :comment_params)
+  expose(:post)
 
   def index
   end
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     if comment.save
       status = :ok
-      render partial: 'discussion', post: PostPresenter.wrap(post), layout: false
+      render partial: 'discussion', post: post, layout: false
     else
       status = :unprocessable_entity
       render partial: 'comments/form', layout: false, status: status, locals: { comment: comment }

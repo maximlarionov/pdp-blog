@@ -1,13 +1,8 @@
-.comments-index
-  h4 = t('app.comment.comments')
-  .input-group.comment-button
-    button.button.radius.success href="#" = t('app.button.new_comment')
-  .comment-area
-    = simple_form_for [post, post.comments.build], html: { multipart: true }, remote: true do |f|
-      .comment-form
-        h4 = t('app.comment.leave_comment')
-        .form-inputs
-          = f.error_notification
-          = f.text_area :message, required: true
-        .form-actions
-          = f.button :submit, class: 'button.button.radius.comment-submit'
+= simple_form_for [post, post.comments.build], html: {'data-abide' => ' ', multipart: true }, remote: true do |f|
+  .comment-form
+    h4 = t('app.comment.leave_comment')
+    .form-inputs
+      = f.text_area :message, required: true
+      small.error = t('app.comment.errors.empty')
+    .form-actions
+      = f.button :submit, class: 'comment-submit'

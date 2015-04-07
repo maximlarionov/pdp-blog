@@ -7,7 +7,7 @@
       = f.label :picture
       = f.file_field :picture
       = f.input :published, as: :radio_buttons
-      = f.input :body, required: true
+      = f.input :body, as: :text, required: true
     .form-actions
       = f.button :submit
       '  or

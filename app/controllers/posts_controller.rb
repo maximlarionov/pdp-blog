@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   respond_to :html
 
   expose(:post, attributes: :post_params)
+  expose(:comments)
+  expose(:comment, attributes: :comment_params)
+
   expose(:user_posts) { current_user.posts.page params[:page] }
   expose(:all_posts) { Post.all.with_user.page params[:page] }
 
@@ -36,6 +39,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :picture, :published).merge(user: current_user)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:user_id, :message, :post_id).merge(user: current_user, post: post)
   end
 
   def authorize_user?

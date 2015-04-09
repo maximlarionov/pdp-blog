@@ -1,7 +1,13 @@
-h5
-  strong = comment.author
-  ' :
-  span.message = comment.message
-'
-p = comment.time
-hr
+.row
+  .small-7.large-7.columns
+    h5
+      strong = comment.author
+      ' :
+      span.message = comment.message
+    '
+    p = comment.time
+    hr
+  .small-1.large-1.columns.left
+    - if comment.can_be_accessed_by?(current_user)
+      i
+        = link_to '', comment, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'

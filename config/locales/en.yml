@@ -99,6 +99,8 @@ en:
       recent: 'Recent Comments'
       comments: 'Comments'
       leave_comment: 'Leave a Comment'
+      errors:
+        empty: Can't be empty
 
     button:
       new_comment: 'New Comment'

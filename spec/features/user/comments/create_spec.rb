@@ -11,7 +11,7 @@ feature 'Add comment to existing post', js: true do
   end
 
   scenario 'I see "create comment" sidebar' do
-    within('.comments-index') do
+    within('.comments_form') do
       expect(page).to have_content('Comments')
       expect(page).to have_content('New Comment')
     end

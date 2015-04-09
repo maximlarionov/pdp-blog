@@ -22,4 +22,8 @@ class CommentPresenter < BasePresenter
   def self.model_name
     Comment.model_name
   end
+
+  def to_partial_path
+    "comments/comment"
+  end
 end

@@ -1,8 +1,7 @@
-= simple_form_for [post, post.comments.build], html: {'data-abide' => ' ', multipart: true }, remote: true do |f|
+= simple_form_for [post, comment], remote: true do |f|
   .comment-form
     h4 = t('app.comment.leave_comment')
     .form-inputs
-      = f.text_area :message, required: true
-      small.error = t('app.comment.errors.empty')
+      = f.input :message, required: true
     .form-actions
       = f.button :submit, class: 'comment-submit'

@@ -1,0 +1,6 @@
+<% if comment.valid? %>
+  $(".comments").html('<%= escape_javascript(render(PostPresenter.wrap(post).recent_comments)) %>');
+  $("#new_comment").html('<%= escape_javascript(render("comments/form", comment: post.comments.build)) %>');
+<% else %>
+  $("#new_comment").html('<%= escape_javascript(render("comments/form")) %>');
+<% end %>

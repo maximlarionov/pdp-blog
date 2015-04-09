@@ -4,13 +4,7 @@
     .input-group.comment-button
       button.radius.success href="#" = t('app.button.new_comment')
     .comment-area
-      = render 'comments/form', post: post
+      = render 'comments/form', post: post, comment: post.comments.build
 
-  - post.all_comments.each do |comment|
-    .row
-      .small-7.large-7.columns
-        = render 'comments/comment', comment: comment
-      .small-1.large-1.columns.left
-        - if comment.can_be_accessed_by?(current_user)
-          i
-            = link_to '', [post, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'fi-x'
+  .comments
+    = render post.all_comments

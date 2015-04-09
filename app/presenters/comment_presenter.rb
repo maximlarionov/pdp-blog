@@ -24,6 +24,6 @@ class CommentPresenter < BasePresenter
   end
 
   def to_partial_path
-    "comments/comment"
+    'comments/comment'
   end
 end

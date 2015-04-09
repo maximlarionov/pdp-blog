@@ -45,7 +45,6 @@ class PostsController < ApplicationController
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user: current_user, post: post)
   end
 
-
   def authorize_user?
     fail NotAuthorizedError unless AccessPolicy.new(post, current_user).can_manage?
   end

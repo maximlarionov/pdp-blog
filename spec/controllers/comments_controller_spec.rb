@@ -1,19 +1,18 @@
 require 'rails_helper'
 
-describe CommentsController do
-
+describe CommentsController, js: true do
   context 'when unauhorized user' do
     describe '#create' do
       context 'with valid params' do
         let(:article) { create(:post) }
 
-        subject { post :create, comment: { message: 'text' }, post_id: article.id, format: :html }
+        subject { post :create, comment: { message: 'text' }, post_id: article.id, format: :js }
 
         it "doesn't create new comment" do
           expect { subject }.not_to change { Comment.count }
         end
 
-        it { is_expected.to redirect_to(new_user_session_path) }
+        its(:status) { is_expected.to eq 401 }
       end
     end
   end
@@ -21,12 +20,12 @@ describe CommentsController do
   context 'when authorized user' do
     let(:user) { create(:user, confirmed_at: DateTime.now) }
     let(:article) { create(:post, user: user) }
-    let(:params) { { comment: { message: 'text' }, post_id: article.id, format: :html } }
+    let(:params) { { comment: { message: 'text' }, post_id: article.id, format: :js } }
 
     before { sign_in(user) }
     subject { response }
 
-    describe '#create' do
+    describe '.create' do
       def do_create
         post :create, params
       end
@@ -42,17 +41,13 @@ describe CommentsController do
       end
 
       context 'with invalid params' do
-        before do
-          request.env['HTTP_REFERER'] = "http://test.host/posts/#{article.id}"
-        end
+        let(:params) { { comment: { message: '' }, post_id: article.id, format: :js } }
 
-        subject { post :create, comment: { message: '' }, post_id: article.id }
+        subject { do_create }
 
         it 'does NOT create new comment' do
-          expect { subject }.not_to change { Comment.count }
+          expect { do_create }.not_to change { Comment.count }
         end
-
-        it { is_expected.to redirect_to(:back) }
       end
     end
   end

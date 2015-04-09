@@ -1,4 +1,7 @@
 .row
-  = render 'comments/all_comments', post: post_presenter
-  = render 'shared/author_avatar', post: post_presenter
-  = render 'post', post: post_presenter
+  .small-5.large-5.columns
+    = render 'comments/all_comments', post: post_presenter
+  .small-1.large-1.columns.left
+    = render 'shared/author_avatar', post: post_presenter
+  .small-6.large-6.columns
+    = render post_presenter

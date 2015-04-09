@@ -1,12 +1,11 @@
-.small-5.large-5.columns
-  .comments_form
-    h4 = t('app.comment.comments')
-    .input-group.comment-button
-      button.radius.success href="#" = t('app.button.new_comment')
-    .comment-area
-      = render 'comments/form', post: post
+.comments_form
+  h4 = t('app.comment.comments')
+  .input-group.comment-button
+    button.radius.success href="#" = t('app.button.new_comment')
+  .comment-area
+    = render 'comments/form', post: post
 
-  h4 = t('app.comment.recent')
+h4 = t('app.comment.recent')
 
-  .comments_index
-    = render post.recent_comments
+.comments_index
+  = render post.recent_comments

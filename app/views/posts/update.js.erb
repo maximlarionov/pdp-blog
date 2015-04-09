@@ -1,0 +1,22 @@
+postMain = $("#post_<%=post.id%>").find(".post-main");
+postEdit = $("#post_<%=post.id%>").find(".post-edit");
+postForm = $("#edit_post_<%=post.id%>");
+editButton = $("#post_<%=post.id%>").find(".edit-button");
+
+<% if post.valid? %>
+  postMain.html('<%= escape_javascript(render(PostPresenter.wrap(post))) %>');
+  postForm.html('<%= escape_javascript(render("posts/form")) %>');
+  postEdit.slideToggle();
+  postMain.slideToggle();
+  editButton.toggleClass("success").toggleClass("secondary")
+
+  if(editButton.hasClass("success")) {
+    editButton.text("Edit")
+  }
+  else {
+    editButton.text("Back")
+  }
+
+<% else %>
+  postForm.html('<%= escape_javascript(render("posts/form")) %>');
+<% end %>

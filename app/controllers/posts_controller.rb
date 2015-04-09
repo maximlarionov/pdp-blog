@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   respond_to :html
+  respond_to :js, only: :update
 
   expose(:post, attributes: :post_params)
   expose(:comments)

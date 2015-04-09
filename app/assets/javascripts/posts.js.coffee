@@ -1,6 +1,5 @@
 $(document).ready ->
   $editButton = $('.edit-button')
-  $backButton = $('.back-button')
 
   $post = $('.post-main')
   $edit = $('.post-edit')
@@ -13,11 +12,15 @@ $(document).ready ->
 
   $editButton.on 'click', (e) ->
     e.preventDefault()
-    $(@).offsetParent().find($post).slideToggle()
-    $(@).offsetParent().find($edit).slideToggle()
+    editToBack($(@))
 
-  $backButton.on 'click', (e) ->
-    e.preventDefault()
-    $(@).offsetParent().find($post).slideToggle()
-    $(@).offsetParent().find($edit).slideToggle()
 
+  editToBack = (el) ->
+    el.offsetParent().find($post).slideToggle()
+    el.offsetParent().find($edit).slideToggle()
+    el.text("Edit").toggleClass("secondary").toggleClass("success")
+
+    if el.hasClass("success")
+      el.text("Edit")
+    else
+      el.text("Back")

@@ -1,14 +1,17 @@
-postMain = $("#post_<%=post.id%>").find(".post-main");
-postEdit = $("#post_<%=post.id%>").find(".post-edit");
-postForm = $("#edit_post_<%=post.id%>");
-editButton = $("#post_<%=post.id%>").find(".edit-button");
+post = $("#post_<%=post.id%>");
+
+main = post.find(".post-main");
+edit = post.find(".post-edit");
+form = post.find(".edit_post")
+editButton = post.find(".edit-button");
 
 <% if post.valid? %>
-  postMain.html('<%= escape_javascript(render(PostPresenter.wrap(post))) %>');
-  postForm.html('<%= escape_javascript(render("posts/form")) %>');
-  postEdit.slideToggle();
-  postMain.slideToggle();
-  editButton.toggleClass("success").toggleClass("secondary")
+  form.html('<%= j(render("posts/form", post: post)) %>');
+  main.html('<%= j(render(PostPresenter.wrap(post))) %>');
+
+  edit.slideToggle();
+  main.slideToggle();
+  editButton.toggleClass("success").toggleClass("secondary");
 
   if(editButton.hasClass("success")) {
     editButton.text("Edit")
@@ -16,7 +19,6 @@ editButton = $("#post_<%=post.id%>").find(".edit-button");
   else {
     editButton.text("Back")
   }
-
 <% else %>
-  postForm.html('<%= escape_javascript(render("posts/form")) %>');
+  form.html('<%= j(render("posts/form")) %>');
 <% end %>

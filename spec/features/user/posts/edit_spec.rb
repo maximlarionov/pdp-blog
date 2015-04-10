@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'See Posts' do
+feature 'See Posts', js: true do
   let(:user) { create(:user, :confirmed) }
   let(:another_user) { create(:user, :confirmed) }
 

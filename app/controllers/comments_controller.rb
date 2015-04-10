@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   respond_to :html
+  respond_to :js, only: :create
 
   expose(:post)
+  expose(:comments)
   expose(:comment, attributes: :comment_params)
 
   before_action :authorize_user?, only: :destroy
@@ -11,7 +13,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.save
-    do_respond
+    respond_with comment
   end
 
   def destroy

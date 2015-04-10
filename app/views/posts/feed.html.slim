@@ -9,11 +9,7 @@
                 = render 'shared/author_avatar', post: post
               .small-6.large-6.columns
                 = render post
-                .buttons
-                  .index-buttons
-                    = render 'shared/index_buttons', post: post
-                  .edit-buttons
-                    = render 'shared/edit_buttons', post: post
+                = render 'shared/buttons', post: post
               .small-5.large-5.columns
                 = render 'comments/recent_comments', post: post
     .paginator

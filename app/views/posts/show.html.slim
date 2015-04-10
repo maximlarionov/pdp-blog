@@ -6,8 +6,4 @@
       = render 'shared/author_avatar', post: post_presenter
     .small-6.large-6.columns
       = render 'posts/post', post: post_presenter
-      .buttons
-          .index-buttons
-            = render 'shared/index_buttons', post: post_presenter
-          .edit-buttons
-            = render 'shared/edit_buttons', post: post_presenter
+      = render 'shared/buttons', post: post_presenter

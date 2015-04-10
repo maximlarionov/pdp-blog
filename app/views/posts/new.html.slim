@@ -1,4 +1,15 @@
 title = t('app.post.create_post')
 .container
   .row
-    = render 'form'
+    .scaffold-form
+      = simple_form_for post, html: { multipart: true } do |f|
+        .form-inputs
+          = f.error_notification
+
+          = f.input :title, required: true
+          = f.label :picture
+          = f.file_field :picture
+          = f.input :published, as: :radio_buttons
+          = f.input :body, as: :text, required: true
+        .form-actions
+          = f.button :submit

@@ -13,19 +13,21 @@ feature 'See Posts' do
     visit post_path(post)
   end
 
-  describe '.#show' do
-    context 'accessing my post' do
+  describe 'post#show' do
+    context 'when accessing my post' do
       scenario 'I can see my post' do
-        within('.button-group') do
+        expect(page).to have_content('My Post')
+      end
+
+      scenario 'I can manage my post' do
+        within('.index-buttons') do
           expect(page).to have_content('Edit')
           expect(page).to have_content('Destroy')
         end
-
-        expect(page).to have_content('My Post')
       end
     end
 
-    context 'accessing another user post' do
+    context 'when accessing another user post' do
       before do
         visit post_path(another_post)
       end
@@ -35,7 +37,7 @@ feature 'See Posts' do
       end
 
       scenario 'I do not see edit and destroy buttons' do
-        within('.button-group') do
+        within('.index-buttons') do
           expect(page).not_to have_content('Edit')
           expect(page).not_to have_content('Destroy')
         end
@@ -43,9 +45,7 @@ feature 'See Posts' do
     end
 
     scenario 'I do not see To Comments button' do
-      within('.button-group') do
-        expect(page).not_to have_content('To Comments')
-      end
+      expect(page).not_to have_content('To Comments')
     end
   end
 end

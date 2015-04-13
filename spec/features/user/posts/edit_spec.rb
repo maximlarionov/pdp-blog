@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'See Posts' do
+feature 'Edit Posts', js: true do
   let(:user) { create(:user, :confirmed) }
   let(:another_user) { create(:user, :confirmed) }
 
@@ -13,36 +13,27 @@ feature 'See Posts' do
     visit posts_path
   end
 
-  describe '.edit#index' do
-    context 'when I edit my post' do
-      scenario 'with correct data' do
-        within("#post_#{post.id}") do
-          within('.button-group') do
-            click_link 'Edit'
-          end
-
-          fill_in 'Title', with: 'New Title'
-
-          click_button 'Update Post'
-        end
-
-        expect(page).to have_content('New Title')
-      end
-
-      scenario 'with incorrect data' do
-        within("#post_#{post.id}") do
-          within('.button-group') do
-            click_link 'Edit'
-          end
-
-          fill_in 'Title', with: ''
-          fill_in 'Body', with: ''
-
-          click_button 'Update Post'
-        end
-
-        expect(page).to have_content('Please review the problems below')
-      end
+  scenario 'edit with correct data' do
+    within('.index-buttons') do
+      click_link 'Edit'
     end
+
+    fill_in 'Title', with: 'New Title'
+    click_button 'Update Post'
+
+    expect(page).to have_content('New Title')
+  end
+
+  scenario 'edit with incorrect data' do
+    within('.index-buttons') do
+      click_link 'Edit'
+    end
+
+    fill_in 'Title', with: ''
+    fill_in 'Body', with: ''
+
+    click_button 'Update Post'
+
+    expect(page).to have_content('Please review the problems below')
   end
 end

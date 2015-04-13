@@ -1,20 +1,18 @@
-.small-6.large-6.columns
-  .post-main
-    .user_name
-      = post.author
-    .date
-      =post.created
-    .title
-      h3 = post.title
-    .post_text
-      = post.body
-    .picture
-      = image_tag(post.picture.url(:medium), class: "picture")
-    hr
-    br
-    = render 'shared/post_buttons', post: post
-  .post-edit
-    = render 'posts/form', post: post
+.post-main
+  .user_name
+    = post.author
+  .date
+    =post.created
+  .title
+    h3 = post.title
+  .post_text
+    = post.body
+  .picture
+    = image_tag(post.picture.url(:medium), class: "picture")
+  hr
+  br
+.post-edit
+  = render 'posts/form', post: post
 
 
 

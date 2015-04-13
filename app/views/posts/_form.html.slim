@@ -1,5 +1,5 @@
 .scaffold-form
-  = simple_form_for post, html: { multipart: true } do |f|
+  = simple_form_for post, html: { multipart: true }, remote: true do |f|
     .form-inputs
       = f.error_notification
 
@@ -10,6 +10,5 @@
       = f.input :body, as: :text, required: true
     .form-actions
       = f.button :submit
-      '  or
-      = link_to 'Back', '#', class: 'back-button'
+
 

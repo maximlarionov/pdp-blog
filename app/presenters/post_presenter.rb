@@ -42,4 +42,8 @@ class PostPresenter < BasePresenter
   def self.model_name
     Post.model_name
   end
+
+  def to_partial_path
+    'posts/post'
+  end
 end

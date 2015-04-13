@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe PostsController do
+describe PostsController, js: true do
 
   context 'when user is not authenticated' do
     describe '#feed' do
@@ -97,7 +97,7 @@ describe PostsController do
       let(:new_params) { { title: 'Amazing' } }
 
       def do_update
-        patch :update, id: article.id, post: new_params, format: :html
+        patch :update, id: article.id, post: new_params, format: :js
       end
 
       subject { response }
@@ -108,7 +108,7 @@ describe PostsController do
       end
 
       context 'with valid params' do
-        it { is_expected.to redirect_to post_path }
+        it { is_expected.to be_success }
         it { expect(article.reload.title).to eq('Amazing') }
       end
 

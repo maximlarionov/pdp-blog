@@ -1,0 +1,24 @@
+post = $("#post_<%=post.id%>");
+
+main = post.find(".post-main");
+edit = post.find(".post-edit");
+form = post.find(".edit_post")
+editButton = post.find(".edit-button");
+
+<% if post.valid? %>
+  form.html('<%= j(render("posts/form", post: post)) %>');
+  main.html('<%= j(render(PostPresenter.wrap(post))) %>');
+
+  edit.slideToggle();
+  main.slideToggle();
+  editButton.toggleClass("success").toggleClass("secondary");
+
+  if(editButton.hasClass("success")) {
+    editButton.text("Edit")
+  }
+  else {
+    editButton.text("Back")
+  }
+<% else %>
+  form.html('<%= j(render("posts/form")) %>');
+<% end %>

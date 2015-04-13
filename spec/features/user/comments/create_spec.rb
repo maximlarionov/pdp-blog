@@ -17,7 +17,7 @@ feature 'Add comment to existing post', js: true do
     end
   end
 
-  scenario 'I can create comment on index page' do
+  scenario 'I can create valid comment on index page' do
     click_button 'New Comment'
 
     within('.comment-area') do
@@ -26,5 +26,16 @@ feature 'Add comment to existing post', js: true do
     end
 
     expect(page).to have_content('Message123')
+  end
+
+  scenario 'I can not create invalid comment on index page' do
+    click_button 'New Comment'
+
+    within('.comment-area') do
+      fill_in 'comment_message', with: ''
+      click_button 'Create Comment'
+    end
+
+    expect(page).to have_content("can't be blank")
   end
 end

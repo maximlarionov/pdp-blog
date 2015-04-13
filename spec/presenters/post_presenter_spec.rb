@@ -13,7 +13,7 @@ describe PostPresenter do
 
     subject { presenter }
 
-    its(:author) { is_expected.to be post.user.full_name }
+    its(:author) { is_expected.to eq 'Obi Van Kenobi' }
     its(:created) { is_expected.to be == post.created_at.strftime('%d %b at %I:%M %p') }
     its(:updated) { is_expected.to be == post.updated_at.strftime('%d %b at %I:%M %p') }
   end

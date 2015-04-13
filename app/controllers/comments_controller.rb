@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
   def destroy
     comment.destroy
-    do_respond
+    redirect_to :back
   end
 
   private
@@ -27,14 +27,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:user_id, :message, :post_id).merge(user: current_user, post: post)
   end
 
-  def do_respond
-    respond_to do |format|
-      format.html { redirect_to post_path(post) }
-      format.js { render inline: 'location.reload();' }
-    end
-  end
-
   def authorize_user?
-    fail NotAuthorizedError unless AccessPolicy.new(post, current_user).can_manage?
+    fail NotAuthorizedError unless AccessPolicy.new(comment, current_user).can_manage?
   end
 end

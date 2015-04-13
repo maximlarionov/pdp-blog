@@ -7,9 +7,9 @@ Master: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4
 
 Integration: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375408/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
 
-[![Code Climate](https://codeclimate.com/repos/5509d5dd69568078a7001be5/badges/46ba8272d30e8562f8ac/gpa.svg)](https://codeclimate.com/repos/5509d5dd69568078a7001be5/feed)
+[![Code Climate](https://codeclimate.com/github/maximlarionov/pdp-blog/badges/gpa.svg)](https://codeclimate.com/github/maximlarionov/pdp-blog)
 
-[![Test Coverage](https://codeclimate.com/repos/5509d5dd69568078a7001be5/badges/46ba8272d30e8562f8ac/coverage.svg)](https://codeclimate.com/repos/5509d5dd69568078a7001be5/feed)
+[![Test Coverage](https://codeclimate.com/github/maximlarionov/pdp-blog/badges/coverage.svg)](https://codeclimate.com/github/maximlarionov/pdp-blog)
 
 ___________________________________________________________________________
 

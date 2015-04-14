@@ -1,7 +1,6 @@
 # Maxim Larionov FS PDP Blog
 
 [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375408/shields_badge.svg)](https://semaphoreci.com/maximlarionov/pdp-blog)
-
 [![Code Climate](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/gpa.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 [![Test Coverage](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/coverage.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 
@@ -23,8 +22,8 @@ It's based on Rails 4 and Ruby 2.1.5.
 * [Kaminari](https://github.com/amatsuda/kaminari) for pagination
 * [Devise](http://github.com/plataformatec/devise) for basic auth
 * [Rollbar](https://github.com/rollbar/rollbar-gem) for exception notification
-* [Paperclip]() for uploading and showing images
-* [Paperclip-Dropbox]() for storing images on dropbox storage
+* [Paperclip](https://github.com/thoughtbot/paperclip) for uploading and showing images
+* [Paperclip-Dropbox](https://github.com/janko-m/paperclip-dropbox) for storing images on dropbox storage
 
 ## Development Gems
 
@@ -48,7 +47,7 @@ It's based on Rails 4 and Ruby 2.1.5.
 * [Shoulda Matchers](http://github.com/thoughtbot/shoulda-matchers) for common RSpec matchers
 * [Email Spec](https://github.com/bmabey/email-spec) for common matchers for testing emails
 * [Site Prism](https://github.com/natritmeyer/site_prism) for using Page Object in acceptance testing
-* [Rspec-Its]() for better testing with subjects
+* [Rspec-Its](https://github.com/rspec/rspec-its) for better testing with subjects
 
 ## Initializers
 

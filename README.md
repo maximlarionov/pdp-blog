@@ -2,14 +2,13 @@ PDP Blog
 
 Semaphore build status
 
-
 Master: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375410/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
 
 Integration: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375408/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
 
-[![Code Climate](https://codeclimate.com/github/maximlarionov/pdp-blog/badges/gpa.svg)](https://codeclimate.com/github/maximlarionov/pdp-blog)
+[![Code Climate](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/gpa.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 
-[![Test Coverage](https://codeclimate.com/github/maximlarionov/pdp-blog/badges/coverage.svg)](https://codeclimate.com/github/maximlarionov/pdp-blog)
+[![Test Coverage](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/coverage.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 
 ___________________________________________________________________________
 

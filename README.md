@@ -1,6 +1,6 @@
 # Maxim Larionov FS PDP Blog
 
-[![Build Status](https://semaphoreapp.com/api/v1/projects/31b68af8b073708a56e4e005bbcba2af4802816d/76140/shields_badge.png)](https://semaphoreapp.com/fs/rails-base)
+[![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375408/shields_badge.svg)](https://semaphoreci.com/maximlarionov/pdp-blog)
 
 [![Code Climate](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/gpa.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 [![Test Coverage](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/coverage.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)

@@ -1,6 +1,16 @@
-PDP Blog
+#PDP Blog by Maxim Larionov.
 
-Semaphore build status
+##Created by using FlatStack Rails Base skeleton.
+
+###Development changes:
+
+Uses Paperclip for picture uploading, and Paperclip-Dropbox for picture storaging.
+
+###Test changes:
+
+Using rspec-its for better subject usage
+
+#Semaphore build status
 
 Master: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375410/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
 

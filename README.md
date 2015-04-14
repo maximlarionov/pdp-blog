@@ -1,35 +1,12 @@
-#PDP Blog by Maxim Larionov.
-
-##Created by using FlatStack Rails Base skeleton.
-
-###Development changes:
-
-Uses Paperclip for picture uploading, and Paperclip-Dropbox for picture storaging.
-
-###Test changes:
-
-Using rspec-its for better subject usage
-
-#Semaphore build status
-
-Master: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375410/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
-
-Integration: [![Build Status](https://semaphoreci.com/api/v1/projects/c5900883-0d22-4651-8b5a-bdb314cb7441/375408/badge.png)](https://semaphoreci.com/maximlarionov/pdp-blog)
-
-[![Code Climate](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/gpa.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
-
-[![Test Coverage](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/coverage.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
-
-___________________________________________________________________________
-
-# Rails Base
+# Maxim Larionov FS PDP Blog
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/31b68af8b073708a56e4e005bbcba2af4802816d/76140/shields_badge.png)](https://semaphoreapp.com/fs/rails-base)
-[![Test Coverage](https://codeclimate.com/github/fs/rails-base/badges/coverage.svg)](https://codeclimate.com/github/fs/rails-base)
-[![Code Climate](https://codeclimate.com/github/fs/rails-base.png)](https://codeclimate.com/github/fs/rails-base)
+
+[![Code Climate](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/gpa.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
+[![Test Coverage](https://codeclimate.com/repos/552cdca469568014df00046e/badges/9586f71fd9683419f5d7/coverage.svg)](https://codeclimate.com/repos/552cdca469568014df00046e/feed)
 
 
-Rails Base is the base Rails application template used at Flatstack.
+PDP Blog is created on Rails Base, the base Rails application template used at Flatstack.
 It's based on Rails 4 and Ruby 2.1.5.
 
 
@@ -46,6 +23,8 @@ It's based on Rails 4 and Ruby 2.1.5.
 * [Kaminari](https://github.com/amatsuda/kaminari) for pagination
 * [Devise](http://github.com/plataformatec/devise) for basic auth
 * [Rollbar](https://github.com/rollbar/rollbar-gem) for exception notification
+* [Paperclip]() for uploading and showing images
+* [Paperclip-Dropbox]() for storing images on dropbox storage
 
 ## Development Gems
 
@@ -69,12 +48,14 @@ It's based on Rails 4 and Ruby 2.1.5.
 * [Shoulda Matchers](http://github.com/thoughtbot/shoulda-matchers) for common RSpec matchers
 * [Email Spec](https://github.com/bmabey/email-spec) for common matchers for testing emails
 * [Site Prism](https://github.com/natritmeyer/site_prism) for using Page Object in acceptance testing
+* [Rspec-Its]() for better testing with subjects
 
 ## Initializers
 
 * `01_config.rb` - shortcut for getting application config with `app_config`
 * `mailer.rb` - setup default hosts for mailer from configuration
 * `requires.rb` - automatically requires everything in lib/ & lib/extensions
+* `dropbox.yml` - dropbox settings
 
 ## Scripts
 
@@ -83,58 +64,13 @@ It's based on Rails 4 and Ruby 2.1.5.
 * `bin/ci` - should be used in the CI or locally
 * `bin/server` - to run server locally
 
-## Getting Started
-
-Clone application as new project with original repository named "rails-base"
-
-    git clone --depth 1 git://github.com/fs/rails-base.git --origin rails-base [MY-NEW-PROJECT]
-
-**Note: we use depth parameter here in order not to copy the history of changes in base project**
-
-Create your new repo on GitHub and push master into it.
-Make sure master branch is tracking origin repo.
-
-    git remote add origin git@github.com:[MY-GITHUB-ACCOUNT]/[MY-NEW-PROJECT].git
-    git push -u origin master
-
-Run bootstrap script
-
-    bin/bootstrap
-
-Make sure all test are green
-
-    bin/ci
-
-Run app
-
-    bin/server
-
-**Do not forget to update this file!**
-
-    mv doc/README_TEMPLATE.md README.md
-    # update README.md
-    git commit -am "Update README.md"
-
-## Updating Existing Projects With New Changes From Rails Base
-
-You can fetch latest changes from rails-base repo and merge or cherry-pick commits
-
-    git fetch rails-base
-    git flow feature start rails-base-update
-    git merge rails-base/master
-
-    # fix conflicts
-    # commit
-    # test
-
-    git flow feature finish rails-base-update
-
 ## Overriding Foundation Settings
 
 Do your overrides in the `app/assets/stylesheets/core/_foundation_and_overrides.scss`
 
 ## Credits
 
+PDP Blog is written by [Maxim Larionov](http://github.com/timurvafin), based on [Rails Base Skeleton](http://github.com/fs/rails-base)
 Rails Base is maintained by [Timur Vafin](http://github.com/timurvafin).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/rails-base/contributors).

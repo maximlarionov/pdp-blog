@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Rails Base PDP Blogging Tool by Max L.
+    application: Awesome Blog!
     dashboard:
       index: Dashboard
     devise:
